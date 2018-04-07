@@ -1,0 +1,130 @@
+\documentclass[14pt,a4paper,oneside]{report}		%lớp văn bản
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage[utf8]{vietnam}						%gói ngôn ngữ tiếng Việt
+%--
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{latexsym, amsmath, amsxtra, amssymb, amscd, amsthm}	%gói ký tự toán
+\usepackage{indentfirst}
+\usepackage{fancyheadings}
+\usepackage{color,colortbl}		%gói màu
+\usepackage{graphicx}			%gói hình ảnh 
+\usepackage{hyperref}			%gói liên kết link
+\usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2cm] {geometry}
+
+\newtheorem{define}{Định nghĩa}[chapter]
+
+\lhead{Mô hình ngẫu nhiên và ứng dụng}
+\rhead{Nhóm 2 - Toán Tin K58}
+%//================================= Begin dinh nghia cac goi lenh
+\renewcommand{\contentsname}{Mục lục}
+\renewcommand{\chaptername}{Chương}
+\renewcommand\bibname{Tài liệu tham khảo}
+\newcommand{\gach}{\backslash}
+\newtheorem{theorem}{Định lý}
+%==================================// End dinh nghia cac goi lenh
+%//================================== Begin make title
+\title{{\bf  BÁO CÁO}}
+\author{Nguyễn Lê Hoàng}
+
+\date{{\em \today}}
+
+%==================================// End make  title
+
+\begin{document}
+
+\thispagestyle{empty}
+\thisfancypage{
+\setlength{\fboxsep}{0pt}
+\fbox}{} 
+\begin{center}
+\begin{large}
+TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI
+\end{large} \\
+\begin{large}
+VIỆN TOÁN ỨNG DỤNG VÀ TIN HỌC
+\end{large} \\
+\textbf{--------------------  *  ---------------------}\\[2.5cm]
+\includegraphics[width=3cm,height=3cm,keepaspectratio]{logo.jpg}\\[2.5cm]
+{\fontsize{32pt}{1}\selectfont BÁO CÁO ĐỒ ÁN TỐT NGHIỆP}\\
+{\fontsize{15pt}{1}\selectfont Đề tài: }\\[1cm]
+\end{center}
+
+\hspace{5cm} Sinh viên thực hiện \hspace{4pt}: \hspace{4pt}
+\textbf{\parbox[t]{5cm}{    
+Nguyễn Lê Hoàng\\
+}}\\[12pt]
+
+\hspace{5cm} Giáo viên hướng dẫn :  \hspace{4pt} \textbf{\parbox[t]{5cm}{    
+Ts. Hà Thị Ngọc Yến
+}}
+
+\vspace{3cm}
+\begin{center}
+{\fontsize{16pt}{1}\selectfont HÀ NỘI}\\
+{\fontsize{16pt}{1}\selectfont \today}
+\end{center}
+
+\pagestyle{fancy}	
+\Large												%co chu
+\maketitle											%make title
+\setlength{\baselineskip}{5truept}		%gian dong cho muc luc
+\tableofcontents									%tao muc luc
+\newpage
+\setlength{\baselineskip}{18truept}	%gian dong cho van ban
+%//==========================================Begin noi dung bai==
+
+\chapter{Giới thiệu}
+\section{Hệ động lực chuyển mạch}
+Một hệ động lực chuyển mạch được mô tả dưới dạng như sau:
+\begin{equation} \label{eq1}
+x^+(t) = f_\sigma(x(t))
+\end{equation}
+
+Trong đó $x\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma$ là trạng thái rời rạc nhận giá trị trong tập $M = \{1,...,m\}$ và $f_k, k\in M$ là trường véc-tơ. $x^+$ là toán tử đạo hàm với thời gian liên tục (ví dụ: $x^+(t)=\frac{d}{dt}x(t)$) và là toán tử đệ quy với thời gian là rời rạc (ví dụ: $x^+(t)=x(t+1)$).
+Để cho rõ, không gian các trạng thái liên tục là không gian Euclid n-chiều, và không gian các trạng thái rời rạc là chỉ số của tập $M$ với hữu hạn các phần tử. Thời gian là tập các số thực với thời gian là liên tục hay tập các số nguyên với thời gian là rời rạc.
+Ta có $m$ hệ thông con, được mô tả dưới dạng:
+\begin{equation} \label{eq2}
+x^+(t) = f_k(x(t))
+\end{equation}
+với $k\in M$.
+
+Khi xét hệ có thời gian liên tục hay rời rạc ta thông nhất đặt $\mathcal{T}$ là tập thời gian, có thể đó là tập số thực $(\mathcal{T} = \mathbb{R})$ hay tập số nguyên $(\mathcal{T} = \mathbb{N})$. Cho số thực $s$, $\mathcal{T}_s$ là tập thời gian mà trong đó thời gian lớn hon hoặc bằng $s$ (ví du: $\mathcal{T}_s=\{t\in\mathcal{T} : t\geq s\}$). Cho hai số thực $t_1$ và $t_2$ với $t_1 < t_2$, khoảng thười gian $[t_1, t_2)$ được hiểu là
+$$[t_1, t_2)=\{t\in\mathcal{T}: t\geq t_1, t<t_2\}.$$
+Mặt khác khoảng thời gian còn có thể hiểu là đoạn $t_2 - t_1$ với thời gian liên tục hay là các điểm thời gian trong $[t_1,t_2)$ với thời gian rời rạc. Cho hàm liên tục từng đoạn $\chi$ định nghĩa trong khoảng thời gian $[t_1,t_2)$ và thời điểm $t \in (t_1,t_2)$ như sau:
+$$\chi(t+)=\lim_{s\downarrow t}\chi(s), \chi(t-)=\lim_{s\uparrow t}\chi(s)$$
+với thời gian là liên tục và
+$$\chi(t+)=\chi(t+1), \chi(t-)=\chi(t-1)$$
+với thời gian là rời rạc.
+\section{Tính ổn định của hệ chuyển mạch}
+Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thông con đơn giản cố định. Như vậy ta cần xét đến tính ổn đinh của các hệ thông chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
+Gọi $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$, trong đó $\Lambda^x$ là tập khác rỗng và là tập con của $\mathcal{S}$, tập các tín hiệu chuyển. Được gọi là tập tín hiệu chuyển chấp nhận được nếu với mỗi trạng thái ban đàu đều được gán với một tập tín hiệu chuyển. Tập các trạng thái liên tục chấp nhận được định nghĩa bởi $\{\Gamma_x:x\in\mathbb{R}^n\}$, trong đó $\Gamma_x$ là tập các vết trạng thái với $x$ là trạng thái bắt đầu và tín hiệu chuyển $\Lambda^x$ :
+$$\Gamma_x = \{\phi(\cdot;0,x,\theta):\theta\in\Lambda^x\}.$$
+Hàm giá trị thực $\alpha :\mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{K}$ nếu nó liên tục tăng chặt và $\alpha(0)=0$. Với điều kiện hàm $\alpha$ không bị chặn còn được gọi là lớp $\mathcal{K}_\infty$. Hàm $\beta : \mathbb{R}_+ \times \mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{KL}$ nếu $\beta(\cdot,t)$ là lớp $\mathcal{K}$ với mỗi điểm cố định $t \geq 0$ và $\lim_{t\rightarrow +\infty}\beta(r,t)=0$ với mỗi $r\geq 0$ cố định.
+
+\begin{define} (Sự ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
+(1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ sao cho
+$$|\phi(t;0,x_0,\theta)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
+(2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ sao cho
+$$|\phi(t;0,x_0,\theta)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
+(3) ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ sao cho
+$$|\phi(t;0,x_0,\theta)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
+\end{define}
+
+\begin{define} (Tính ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
+(1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+$$|\phi(t;0,x_0,\theta^x)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
+(2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+$$|\phi(t;0,x_0,\theta^x)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
+(3) ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+$$|\phi(t;0,x_0,\theta^x)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
+\end{define}
+
+\chapter{Các hệ chuyển mạch}
+\section{Mở đầu}
+\section{Hệ chuyển mạch phi tuyến}
+\section{Hệ chuyển mạch tuyến tính}
+
+
+\end{document}
