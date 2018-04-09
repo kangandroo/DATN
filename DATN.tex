@@ -124,8 +124,32 @@ $$|\phi(t;0,x_0,\theta^x)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\
 \chapter{Các hệ chuyển mạch}
 \section{Mở đầu}
 Trong chương này, ta xét hệ động lực chuyển mạch sau:
-\begin{equation}
+\begin{equation} \label{eq2-1}
+x^+(t)=f(x(t),\sigma (t)),
+\end{equation}
 
+trong đó $x(t)\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma (t)\in M = \{1,...,m\}$ là trạng thái rời rạc và $f : \mathbb{R}^n \times M \mapsto \mathbb{R}^n$ là trường vec-tơ với $f(\cdot ,i)$ là hàm liên tục Lipschitz với mọi $i\in M$.\\
+
+Ta định nghĩa hàm $f_i : \mathbb{R}^n \mapsto \mathbb{R}^n$:
+$$f_i(x)=f(x,i), \qquad i\in M.$$
+
+Hệ \ref{eq3} được viết lại
+
+\begin{equation} \label{eq2-2}
+x^+(t)=f_{\sigma (t)}(x(t)).
+\end{equation}
+
+Trong chương này, ta sẽ đi phân tích tính ổn định của hệ \ref{eq4}. Ta có một vài giả thiết sau:\\
+(1) $f_i(0)=0$ với mọi $i\in M$, đó là gốc cân bằng.\\
+(2) Hệ là liên tục Lipschitz toàn cục, tồn tại hằng số dương $L$ sao cho
+\begin{equation} \label{eq2-3}
+|f_i(x)-f_i(y)|\leq L|x-y|\qquad \forall x,y \in \mathbb{R}^n, i\in M,
+\end{equation}
+đảm bảo tính xác định được của hệ thông chuyển mạch.\\
+Ta định nghĩa $\phi (t;t_0,x_0,\sigma)$ là trạng thái chuyển liên tục của hệ \ref{eq2-2} tại thời điểm $t$ với điều kiện ban đầu $x(t_0)=x_0$ và cơ chế chuyển $\sigma$. Ta sử dụng $\phi (t;x_0,\sigma)$ là nghiệm tại thời điểm $t_0 = 0$. Với mọi điều kiện ban đầu $x(t_0)=x_0$ và thời điểm $t>t_0$, với thời gian rời rạc ta có
+
+\begin{equation} \label{eq2-4}
+\phi (t;t_0,x_0,\sigma)=f_{\sigma (t-1)}\circ \cdots \circ f_{\sigma (t_0+1)}\circ f_{\sigma (t_0)}(x_0),
 \end{equation}
 
 \section{Hệ chuyển mạch phi tuyến}
