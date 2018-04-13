@@ -13,16 +13,19 @@
 \usepackage{hyperref}			%gói liên kết link
 \usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2cm] {geometry}
 
-\newtheorem{define}{Định nghĩa}[chapter]
-
-\lhead{Mô hình ngẫu nhiên và ứng dụng}
-\rhead{Nhóm 2 - Toán Tin K58}
+\lhead{DATN}
+\rhead{Toán Tin K58}
 %//================================= Begin dinh nghia cac goi lenh
 \renewcommand{\contentsname}{Mục lục}
 \renewcommand{\chaptername}{Chương}
 \renewcommand\bibname{Tài liệu tham khảo}
 \newcommand{\gach}{\backslash}
-\newtheorem{theorem}{Định lý}
+\newtheorem{theorem}{Định lý}[chapter]
+\newtheorem{define}[theorem]{Định nghĩa}
+\newtheorem{lemma}[theorem]{Bổ đề}
+\newtheorem{corollary}[theorem]{Hệ quả}
+\newtheorem{proposition}[theorem]{Mệnh đề}
+
 %==================================// End dinh nghia cac goi lenh
 %//================================== Begin make title
 \title{{\bf  BÁO CÁO}}
@@ -103,7 +106,7 @@ Gọi $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$, trong đó $\Lambda^x$ là t�
 $$\Gamma_x = \{\phi(\cdot;0,x,\theta):\theta\in\Lambda^x\}.$$
 Hàm giá trị thực $\alpha :\mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{K}$ nếu nó liên tục tăng chặt và $\alpha(0)=0$. Với điều kiện hàm $\alpha$ không bị chặn còn được gọi là lớp $\mathcal{K}_\infty$. Hàm $\beta : \mathbb{R}_+ \times \mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{KL}$ nếu $\beta(\cdot,t)$ là lớp $\mathcal{K}$ với mỗi điểm cố định $t \geq 0$ và $\lim_{t\rightarrow +\infty}\beta(r,t)=0$ với mỗi $r\geq 0$ cố định.
 
-\begin{define} (Sự ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
+\begin{define} \label{def1-1} (Sự ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
 (1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ sao cho
 $$|\phi(t;0,x_0,\theta)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
 (2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ sao cho
@@ -151,9 +154,263 @@ Ta định nghĩa $\phi (t;t_0,x_0,\sigma)$ là trạng thái chuyển liên t�
 \begin{equation} \label{eq2-4}
 \phi (t;t_0,x_0,\sigma)=f_{\sigma (t-1)}\circ \cdots \circ f_{\sigma (t_0+1)}\circ f_{\sigma (t_0)}(x_0),
 \end{equation}
+trong đó $\circ$ là hàm hợp, $f_1 \circ f_2(x) = f_1(f_2(x))$. Với thời gian là liên tục ta có
+
+\begin{equation} \label{eq2-5}
+\phi (t;t_0,x_0,\sigma )=\Phi^{f_{i_s}}_{t-t_s}\circ\Phi^{f_{i_{s-1}}}_{t_s-t_{s-1}}\circ\cdots\circ\Phi^{f_{i_{1}}}_{t_2-t_{1}}\circ\Phi^{f_{i_{0}}}_{t_1-t_{0}}(x_0)
+\end{equation}
+
+trong đó $\Phi^f_t(x_0)$ là giá trị của tích phân hàm $f$ đi qua $x(0)=x_0$ và $(t_0,i_0),\cdots ,(t_s,i_s)$ là trình tự chuyển của $\sigma$ trong $[t_0,t)$.\\
+Để đưa ra định nghĩa về tính ổn định của hệ chuyển mạch, ta cần thêm một vài định nghĩa sau. Gọi $d(x,y)$ là khoảng cách Euclide giữa $x$ và $y$. Cho tập $\Omega \subset\mathbb{R}^n$ và véc-tơ $x\in\mathbb{R}^n$, đặt $|x|_\Omega = \inf_{y\in\Omega}d(x,y)$. Cho tập $\Omega\subset\mathbb{R}^n$ và một số thực dương $\tau$, gọi $\mathbb{B}(\Omega , \tau)$ là $\tau$-lân cận của $\Omega$ :
+$$\mathbb{B}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega\leq\tau\}.$$
+
+Tương tự, gọi $\mathbb{H}(\Omega,\tau)$ là $\tau$-mặt cầu của $\Omega$ :
+
+$$\mathbb{H}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega=\tau\}.$$
+
+Đặc biệt, hình cầu đóng $\mathbb{B}(\{0\},\tau)$ được ký hiệu là $\mathbb{B}_\tau$, và mặt cầu $\mathbb{H}(\{0\},\tau)$ được ký hiệu là $\mathbb{H}_\tau$.
+
+\begin{define}
+Gốc cân bằng của hệ \ref{eq2-2} được gọi là\\
+(1) đảm bảo hút toàn cục nếu
+$$\lim_{t\rightarrow +\infty}|\phi (t;x,\sigma)|=0\qquad\forall x\in\mathbb{R}^n, \sigma\in\mathcal{S}$$
+(2) đảm bảo hút toàn cục đều nếu với mọi $\delta >0$ và $\epsilon >0$, tồn tại $T>0$ sao cho
+$$|\phi (t;x,\sigma)|<\epsilon\qquad\forall t\in\mathcal{T}_T, |x|<\delta,\sigma\in\mathcal{S}$$
+(3) đảm bảo ổn định nếu với mọi $\epsilon > 0$ và $\sigma\in\mathcal{S}$, tồn tại $\delta >0$ sao cho
+$$|\phi (t;x,\sigma)|<\epsilon\qquad\forall t\in\mathcal{T}_0, |x|<\delta$$
+(4) đảm bảo ổn định đều nếu tồn tại $\delta > 0$ và lớp $\mathcal{K}$ hàm $\gamma$ sao cho
+$$|\phi (t;x,\sigma)|\leq \gamma(|x|)\qquad\forall t\in\mathcal{T}_0, |x|<\delta,\sigma\in\mathcal{S}$$
+(5) đảm bảo ổn định tiệm cận toàn cục nếu nó vừa đảm bảo ổn định và đảm bảo hút toàn cục
+(6) đảm bảo ổn định tiệm cận đều toàn cục nếu nó vừa đảm bảo ổn định đều và đảm bảo hút toàn cục đều
+(7) đảm bảo ổn định mũ toàn cục nếu với mọi $\sigma\in\mathcal{S}$, tồn tại $\alpha>0$ và $\beta >0$ sao cho
+$$|\phi (t;x,\sigma)|\leq \beta e^{-\alpha t}|x|\qquad\forall t\in\mathcal{T}_0, x\in\mathbb{R}^n$$
+(8) đảm bảo ổn định mũ đều toàn cục nếu tồn tại $\alpha>0$ và $\beta >0$ sao cho
+$$|\phi (t;x,\sigma)|\leq \beta e^{-\alpha t}|x|\qquad\forall t\in\mathcal{T}_0, x\in\mathbb{R}^n, \sigma\in\mathcal{S}$$
+\end{define}
+
+Hệ được đảm bảo ổn đinh/hút nếu gốc cân bằng của nó là đảm bảo ổn định/hút. Từ chương này trở đi để cho gọn các từ "đảm bảo" và "toàn cục" sẽ được loại bỏ. Sự ổn định tiệm cận/mũ thống nhất phù hợp trong định nghĩa \ref{def1-1}.
 
 \section{Hệ chuyển mạch phi tuyến}
-\section{Hệ chuyển mạch tuyến tính}
+Trong phần này, ta sẽ xét vấn đề ổn định của hệ chuyển mạch phị tuyến
+\begin{equation} \label{eq2-6}
+x^+(t)=f_{\sigma (t)}(x(t))
+\end{equation}
+\subsection{Hàm Lyapunov}
+Hàm liên tục $V(x): \mathbb{R}^n\mapsto \mathbb{R}$ với $V(0)=0$ là:\\
+(1) xác định dương $(V(x)\succ 0)$ nếu $V(x)>0\forall x\in\mathbb{R}^n-\{0\}$ \\
+(2) nửa xác định dương $(V(x)\succeq 0)$ nếu $V(x)\geq 0\forall x\in\mathbb{R}^n$ \\
+(3) tia không bị chặn nếu tồn tại lớp $\mathcal{K}_\infty$ hàm $\alpha (\cdot)$ sao cho $V(x)\geq \alpha(|x|)\forall x\in\mathbb{R}^n$ \\
 
+\begin{define} \label{def2-2}
+Cho $\Omega$ là lân cận ở gốc. Hàm $V:\Omega \mapsto\mathbb{R}$ được gọi là hàm Lyapunov yếu (CWLF) cho hệ chuyển mạch (\ref{eq2-6}) nếu \\
+(1) nó là nửa liên tục dưới trên $\Omega$\\
+(2) nó chấp nhận lớp $\mathcal{K}$ hàm $\alpha_1$ và $\alpha_2$ sao cho
+$$\alpha_1(|x|)\leq V(x)\leq \alpha_2(|x|)\qquad \forall x\in\Omega$$\\
+(3) với mọi $x\in\Omega$ và $i\in M$ ta có
+$$\mathcal{D}^+V(x)|_{f_i} = \lim_{\tau \rightarrow 0^+}\sup\frac{V(\phi(\tau;0,x,\widehat{i}))-V(x)}{\tau}\leq 0$$
+với thời gian là liên tục, trong đó $\widehat{i}$ là hằng tín hiệu chuyển $\sigma(t)=i \forall t,$ và
+$$\mathcal{D}^+V(x)|_{f_i}=V(f_i(x))-V(x)\leq 0$$
+với thời gian là rời rạc
+\end{define}
+
+Lưu ý: Hàm Lyapunov yếu không cần là liên tục. Thực tế, ngay cả một hệ thống phi tuyến ổn định đều $\dot{x}=f(x)$ với $f$ là hàm đủ trơn có thể không chấp nhận hàm Lyapunov yếu nào cả.
+
+\begin{define} \label{def2-4}
+Hàm $V:\mathbb{R}^n\mapsto\mathbb{R}$ được gọi là hàm Lyapunov mạnh (CLF) cho hệ chuyển mạch (\ref{eq2-6}) nếu\\
+(1) nó liên tục tại mọi điểm và liên tục khả vi trừ gốc\\
+(2) nó chấp nhận lớp $\mathcal{K}_\infty$ bị chặn là lớp $\mathcal{K}_\infty$ hàm $\alpha_1$ và $\alpha_2$ sao cho
+$$\alpha_1(|x|)\leq V(x)\leq \alpha_2(|x|)\qquad\forall x\in\mathbb{R}^n,$$
+(3) có lớp $\mathcal{K}$ hàm $\alpha_3: \mathbb{R}^n\mapsto\mathbb{R}_+$ sao cho
+\begin{equation} \label{eq2-7}
+\mathcal{D}^+V(x)|_{f_i}\leq -\alpha_3(|x|)\qquad\forall x\in\mathbb{R}^n, i\in M
+\end{equation}
+\end{define}
+Với thời gian là liên tục thì
+\begin{equation} \label{eq2-8}
+\mathcal{D}^+V(x)|_{f_i}=\limsup_{\tau\rightarrow 0^+}\frac{V(x+f_i(x)\tau)-V(x)}{\tau}\qquad\forall x\in\mathbb{R}^n,i\in M,
+\end{equation}
+do sự liên tục Lipschitz địa phương của $V$. Cho hàm khả vi liên tục $V$ ta có
+$$\mathcal{D}^+V(x)|_f=\frac{d}{dt}V(x)=L_fV(x)=\frac{\partial}{\partial x}V(x)f(x).$$
+Giả sử hệ (\ref{eq2-6}) chấp nhận một hàm Lyapunov yếu. Với mọi vết trạng thái $x(t)=\phi(t;x_0,\sigma)$ trên $\sigma$, ta có $V(x(t))\leq V(x_0)$ với mọi $t\geq 0$. Với mọi $\epsilon >0$, chọn $\delta$ sao cho
+$$\mathbb{B}_\delta\subset\Omega , \qquad\{x:V(x)\leq\delta\}\subset\mathbb{B}_\epsilon .$$
+Ta có $|x(t)|\leq\epsilon$ với mọi $t\geq 0$ nếu $x_0 \in\mathbb{B}_\delta$ thì hệ là ổn định đều.\\
+Giả sử hệ (\ref{eq2-6}) chấp nhận hàm Lyapunov $V$. Ta chỉ ra rằng hệ là tiệm cận ổn định. Ta giả sử hệ là với thời gian liên tục, và với trường hợp thời gian rời rạc chỉ thể chỉ ra theo một cách tương tự. Cố định trạng thái bắt đầu $x_0 \neq 0$ và tín hiệu chuyển $\sigma$, và $x(t)=x(t;x_0,\sigma)$. Theo định nghĩa \ref{def2-4}
+\begin{equation} \label{eq2-9}
+\limsup_{\tau\rightarrow 0^+}\frac{V(x(t+\tau))-V(x)}{\tau}\leq -\alpha_4(V(x(t)))\qquad\forall t\in\mathcal{T}_0,
+\end{equation}
+trong đó $\alpha_4 = \alpha_3\circ\alpha_2^{-1}$. Định nghĩa hàm $\eta : \mathbb{R}^+\mapsto\mathbb{R}$
+$$
+\eta (t) = \left\{
+\begin{array}{l}
+-\int_1^t\frac{1}{\min(\tau,\alpha_4(\tau))}d\tau ,\qquad t\in (0,1),\\
+-\int_1^t\frac{1}{\alpha_4(\tau)}d\tau , \qquad t\geq 1.
+\end{array}\right.
+$$
+$\eta$ là hàm giảm, khả vi, và $\lim_{t\downarrow 0}\eta(t)=+\infty$. Từ (\ref{eq2-9}) ta có
+\begin{equation} \label{eq2-10}
+\eta (V(x(t))) - \eta (V(x_0)) = \int_0^1\dot{\eta}(V(x(\tau)))dV(x(s)) \geq \int_0^11ds=t\qquad\forall t\geq 0
+\end{equation}
+
+\section{Hệ chuyển mạch tuyến tính}
+Trong phần này, ta tập trung vào một hệ chuyển mạch đặc biệt nhưng cũng rất quan trọng, hệ mà trong đó các hệ con đều là tuyến tính không đổi theo thời gian. Các hệ này được gọi là hệ chuyển mạch tuyến tính và có dạng:
+\begin{equation} \label{eq2-16}
+x^+(t) = A_{\sigma (t)}x(t), \qquad x(0) = x_0,
+\end{equation}
+trong đó $A_k\in\mathbb{R}^{n\times n}, k\in M$, là các ma trận hằng số.\\
+
+Đặt $\mathbf{A} = \{A_1,\cdots,A_m\}$. $\mathbf{A}$ có thể được xem như hệ các ma trận của hệ chuyển mạch tuyến tính. \\
+Do tính tuyến tính của các hệ con, nghiệm của hệ xác định bởi
+\begin{equation} \label{eq2-17}
+\phi (t;t_0,x_0,\sigma)=\Phi (t;t_0,\sigma),
+\end{equation}
+trong đó $\Phi (t;t_0,\sigma)$ là ma trận chuyển trạng thái. Với thời gian rời rạc, ma trận chuyển trạng thái là
+$$\Phi (t;t_0,\sigma)=A_{\sigma (t-1)}\cdots A_{\sigma (t_0)}$$
+còn đối với thời gian là liên tục
+$$\Phi (t;t_0,\sigma )=e^{A_{i_s}(t-t_s)}e^{A_{i_{s-1}}(t_s-t_{s-1})}\cdots e^{A_{i_1}(t_2-t_1)}e^{A_{i_0}(t_1-t_0)},$$
+trong đó $t_0,t_1,\cdots ,t_s$ và $i_0,i_1,\cdots,i_s$ 
+là thời gian và thứ tự chuyển trong $[t_0,t)$.\\
+
+Ta có
+\begin{equation} \label{eq2-18}
+\phi (t;t_0,\lambda x_0,\sigma) = \lambda \phi (t;t_0,x_0,\sigma)\quad \forall t,t_0,x_0,\sigma , \forall \lambda\in\mathbb{R},
+\end{equation}
+gọi là tính chất tuyến tính xuyên tâm và
+\begin{equation} \label{eq2-19}
+\phi (t;t_0,x_0,\sigma) = \phi (t-t_0;0,x_0,\sigma')\quad \forall t,t_0,x_0,\sigma,
+\end{equation}
+trong đó $\sigma'(t)=\sigma(t+t_0)$ với mọi $t$. Phần đằng sau được biết là tính bất biến của thời gian.\\
+
+Do có hai tính bất biến trên, với hệ chuyển mạch tuyến tính, tính hút địa phương tương đương với tính hút toàn cục, và không mất tính tổng quát thời gian ban đầu luôn là $t_0 = 0$.
+
+\subsection{Hệ nới lỏng}
+Khi phân tích tính ổn định của hệ chuyển mạch tuyến tính, các tín hiệu chuyển có thể lấy tùy ý. Khi các tín hiệu chuyển mạch là hằng số và được lấy trong tập hữu hạn các giá trị rời rạc, nó là cách làm mịn tự nhiên được áp dụng trong các phân tích nhiễu sau này. Điều này dẫn đến hệ thống mở rộng sau.\\
+
+Đặt
+$$\mathcal{W} = \{ w\in\mathbb{R}^m:w_i \geq 0,  i=1,\cdots ,m,\sum_{i=1}^m w_i \leq 1 \}$$
+\begin{equation} \label{2-20}
+A(w) = \sum_{i=1}^m w_iA_i,\quad x\in\mathbb{R}^n.
+\end{equation}
+
+Ta xét hệ tựa tuyến tính
+\begin{equation} \label{eq2-23}
+x^+(t)=A(w(t))x(t),
+\end{equation}
+trong đó $w(\cdot)$ là các hàm liên tục từng khúc. Gọi $\Gamma_s$ là tập nghiệm của hệ chuyển mạch tuyến tính, $\Gamma_p$ là tập nghiệm của hệ tựa tuyến tính. Ta có thể thấy rằng 
+$$\Gamma_s\subset\Gamma_p$$
+
+Tuy nhiên nghiệm của các hệ khác có thể xấp xỉ bằng nghiệm của hệ tuyến tính theo bổ đề dưới đây.
+
+\begin{lemma} \label{le1}
+Cố định $\xi\in\mathbb{R}^n$ và $z:[0,+\infty)\mapsto\mathbb{R}^n$ là nghiệm của
+$$\dot{z}(t)\in\mathcal{A}(z(t)), \qquad z(0)=\xi.$$
+Đặt $r:[0,+\infty)\mapsto\mathbb{R}$ là hàm liên tục thỏa mãn $r(t)>0$ với mọi $t\geq 0$.\\
+Tồn tại $\eta$ với $|\eta - \xi|\leq r(0)$ và nghiệm $x:[0,+\infty)\mapsto\mathbb{R}^n$ của
+$$\dot{x}(t)\in\{A_1x(t),\cdots,A_mx(t)\},\qquad x(0)=\eta,$$
+sao cho
+$$|z(t)-x(t)|\leq r(t)\quad\forall t\in[0,+\infty).$$
+\end{lemma}
+
+Bổ đề trên thiết lập sự tương quan giữa tính ổn định của hệ chuyển mạch tuyến tính với tính ổn định của hệ nới lỏng. Giả sử nghiệm của hệ tuyến tính là hội tụ thì nghiệm của hệ nới lỏng cũng hội tụ. Với thời gian rời rạc, mối tương quan này vẫn được giữ.
+
+\begin{corollary} \label{co2-12}
+Các phát biểu sau là tương đương:\\
+(1) Hệ chuyển mạch tuyến tính là hút.\\
+(2) Hệ tựa tuyến tính là hút.\\
+(3) Hệ ... là hút.
+\end{corollary}
+
+Đối với hệ tuyến tính, tính hút cũng thể hiện tính ổn định mũ. Với hệ chuyển mạch tuyến tính cũng có thể chứng minh một vài tính chất là tương đương với nhau.
+
+\begin{proposition} \label{pro2-13}
+Các phát biểu sau là tương đương:\\
+(1) Hệ chuyển mạch tuyến tính là hút.
+(2) Hệ chuyển mạch tuyến tính là hút đều.
+(3) Hệ chuyển mạch tuyến tính là tiệm cận ổn định.
+(4) Hệ chuyển mạch tuyến tính là tiệm cận ổn định đều.
+(5) Hệ chuyển mạch tuyến tính là ổn định mũ.
+(6) Hệ chuyển mạch tuyến tính là ổn định mũ đều.
+\end{proposition}
+
+\textit{Chứng minh} Trước hết, tính ổn định mũ đều tương đương với mọi tính ổn định khác, và tính hút cũng tương đương với mọi tính ổn định khác. Vì thế, ta chỉ cần chứng minh tính hút tương đương với tính ổn định mũ đều.\\
+
+Với mọi trạng thái $x$ trên hình cầu đơn vị, theo tính hút ta có thời điểm $t^x$ sao cho
+\begin{equation} \label{eq2-24}
+\sup_{\sigma\in\mathcal{S}}|\phi(t^x;0,x,\sigma)|<\frac{1}{2}.
+\end{equation}
+Với mọi $x$ cố định $x\in\mathbf{H}_1$, ta cần chứng minh $\sup_{\sigma\in\mathcal{S}}|\phi(t^x;0,y,\sigma)|\leq\frac{1}{2}$ nếu $y$ là lân cận của $x$. Đặt $\eta = \max_{i\in M}|A_i|$. Theo (\ref{eq2-17}) và (\ref{eq2-24}) ta có
+$$
+\begin{array}{lcl}|\phi (t^x;0,y,\sigma)|&
+=& |\phi(t^x;0,x,\sigma) + \phi(t^x;0,y-x,\sigma)|\\
+&\leq & |\phi(t^x;0,x,\sigma)| + |\phi(t^x;0,y-x,\sigma)|\\
+&\leq &|\phi(t^x;0,x,\sigma)| + e^{\eta t^x}|y-x|\\
+&\leq &\frac{1}{2}\quad\forall\sigma\in\mathcal{S}, |y-x|\leq e^{-\eta t^x}(\frac{1}{2}-\sup_{\sigma\in\mathcal{S}}|\phi(t^x;0,x,\sigma)|).
+\end{array}
+$$
+
+Với mọi $x\in\mathbf{H}_1$, lân cận $N_x$ của $x$ sao cho
+$$\sup_{\sigma\in\mathcal{S}}|\phi (t^x;0,y,\sigma)| \leq\frac{1}{2}\quad\forall y\in N_x.$$
+Vì $x$ thuộc mặt cầu đơn vị nên
+$$\bigcup_{x\in\mathbf{H}_1}N_x \supseteq \mathbf{H}_1.$$
+
+Vì mặt cầu đơn vị là tập compact nên theo định lý phủ hữu hạn, tồn tại số hữu hạn $l$ và tập các trạng thái $x_1,\cdots,x_l$ trên mặt cầu đơn vị sao cho 
+$$\bigcup_{i=1}^lN_{x_i} \supseteq \mathbf{H}_1.$$
+Do đó, ta có thể chia mặt cầu đơn vị thành $l$ phần $R_1,\cdots,R_l$ sao cho\\
+(a) $\bigcup_{i=1}^lR_i=\mathbf{H}_1$, và $R_i\cap R_j=\emptyset$ với $i\neq j$;\\
+(b) với mỗi $i, 1\leq i\leq l,x_i\in R_i,$ và
+$$\sup_{\sigma\in\mathcal{S}}|\phi(t^{x_i};0,y,\sigma)|\leq\frac{1}{2}, \quad y\in R_i$$
+Định nghĩa nón
+$$\Omega_i = \{x\in\mathbb{R}^n:\exists\lambda\neq 0, y\in R_i | x=\lambda y\}, \quad i=1,\cdots,l.$$
+Đặt $\Omega_0={0}$. Có $\bigcup_{i=0}^l\Omega_i=\mathbb{R}^n$ và $\Omega_i \cap \Omega_j = \emptyset$ với $i\neq j$. Đặc biệt, $\Omega_0$ là bất biến với chuyển mạch và hình thành sự cân bằng bất biến.\\
+
+Với mọi $i=1,\cdots,l$ và $x\in\Omega_i$, đặt $t_x = t^{x_i}$:
+\begin{equation} \label{eq2-25}
+\max_{x\neq 0}t_x = \max_{i=1}^lt^{x_i}=T_1 <+\infty.
+\end{equation}
+
+Theo tính chất (a) và (b), với mọi $x\in\Omega_i, i=1,\cdots,l$, mọi tín hiệu chuyển $\sigma$ luôn mang $x$ vào trong hình cầu $\mathbf{B}_{\frac{|x|}{2}}$ tại thời điểm $t_x$.\\
+
+Cuối cùng, với mọi trạng thái bắt đầu $x_0$ và tín hiệu chuyển $\sigma$, ta định nghĩa đệ quy tập thời gian và trạng thái\\
+$\qquad s_0=0,$\\
+$\qquad z_0=x_0$\\
+$\qquad s_k=s_{k-1}+t_{z_{k-1}},$\\
+$\qquad z_k = \phi (s_k;0,x_0,\sigma),\quad k=1,2,\cdots.$\\
+Có thể thấy rằng
+\begin{equation} \label{eq2-26}
+s_k \leq kT_1,\qquad |z_{k+1}|\leq \frac{|z_k|}{2}, \quad k=0,1,\cdots,
+\end{equation}
+nghĩa là 
+$$|\phi(s_k;0,x_0,\sigma)|\leq\frac{|x_0|}{2^k}\leq e^{-\gamma s_k}|x_0|,\quad k=0,1,2,\cdots,$$
+trong đó $\gamma = \frac{\ln 2}{T_l}$. Mặt khác, đăt $\eta = 2\exp(T_l\max\{||A_1||,\cdots,||A_m||\})$. Ta có
+\begin{equation} \label{eq2-27}
+|\phi (t;0,x_0,\sigma)|\leq \eta e^{-\gamma t}|x_0|\quad \forall t\geq 0
+\end{equation}
+Từ đó suy ra hệ là ổn định mũ đều.\\
+
+Qua sự tương đương giữa tính hút và tính ổn định mũ, cùng với hệ quả \ref{co2-12} ta được kết quả sau.
+
+\begin{theorem}\label{the2-15}
+Các phát biểu dưới đây là tương đương cho hệ chuyển mạch tuyến tính và hệ nới lỏng:\\
+(1) Hệ có tính hút.\\
+(2) Hệ có tính tiệm cận ổn định.\\
+(3) Hệ có tính ổn định mũ.\\
+(4) Hệ chuyển mạch chấp nhận hàm Lyapunov.
+\end{theorem}
+Ta định nghĩa
+\begin{equation}\label{eq2-28}
+\varrho (\mathbf{A})=\limsup_{t\rightarrow +\infty,\sigma\in\mathcal{S},|x|=1}\frac{\ln|\phi(t;0,x,\sigma)|}{t},
+\end{equation}
+là số mũ Lyapunov lớn nhất, xác định tỷ lệ cao nhất có thể nghiệm phân kỳ, và
+\begin{equation}\label{eq2-29}
+R(\mathbf{A})=\{\phi (t;0,x,\sigma):t\in\mathcal{T}_0,x\in\mathbf{H}_1,\sigma\in\mathcal{S}\},
+\end{equation}
+là tập đạt đến được của hệ từ mặt cầu đơn vị.
+
+\begin{define}\label{def2-17}
+Hệ chuyển mạch tuyến tính $\mathbf{A}$ được gọi là \\
+(1) ổn định nếu $\varrho(\mathbf{A})<0$\\
+(2) ổn định biên nếu $\varrho(\mathbf{A})=0$ và tập $R(\mathbf{A})$ bị chặn\\
+(3) không ổn định biên nếu $\varrho(\mathbf{A})=0$ và tập $R(\mathbf{A})$ không bị chặn\\
+(4) không ổn định nếu $\varrho(\mathbf{A})>0$
+\end{define}
 
 \end{document}
