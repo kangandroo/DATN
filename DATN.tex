@@ -20,7 +20,7 @@
 \renewcommand{\chaptername}{Chương}
 \renewcommand\bibname{Tài liệu tham khảo}
 \newcommand{\gach}{\backslash}
-\newtheorem{theorem}{Định lý}[chapter]
+\newtheorem{theorem}{Định lý}[chapter]\theoremstyle{definition}
 \newtheorem{define}[theorem]{Định nghĩa}
 \newtheorem{lemma}[theorem]{Bổ đề}
 \newtheorem{corollary}[theorem]{Hệ quả}
@@ -78,51 +78,112 @@ Ts. Hà Thị Ngọc Yến
 \setlength{\baselineskip}{18truept}	%gian dong cho van ban
 %//==========================================Begin noi dung bai==
 
-\chapter{Giới thiệu}
+\chapter{Các khái niệm cơ bản}
 \section{Hệ động lực chuyển mạch}
+Hệ động lực chuyển mạch là một hệ động lực mà việc chuyển đổi trạng thái có vai trò không nhất định trong vận hành cũng như sự ổn định của hệ. Cụ thể hơn, hệ động lực chuyển mạch là hệ ghép hai mức độ. Mức thấp được điều khiển bởi tập các trạng thái vận hành. Mỗi trạng thái vận hành được mô tả bằng một phương trình vi phân hoặc phương trình sai phân. Hệ động lực chuyển mạch tuân thủ nghiêm ngặt các nguyên tắc cơ bản:
+\begin{itemize}
+  \item Mỗi thời điểm chỉ có đúng một trạng thái vận hành.
+  \item Việc chuyển đổi giữa các trạng thái không diễn ra đột ngột, tùy ý.
+\end{itemize}
+Ví dụ: động cơ xe máy số
+\\
+
 Một hệ động lực chuyển mạch được mô tả dưới dạng như sau:
-\begin{equation} \label{eq1}
-x^+(t) = f_\sigma(x(t))
+\begin{equation} \label{eq1-1}
+x^+(t) = f_\sigma(x(t)),
 \end{equation}
 
-Trong đó $x\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma$ là trạng thái rời rạc nhận giá trị trong tập $M = \{1,...,m\}$ và $f_k, k\in M$ là trường véc-tơ. $x^+$ là toán tử đạo hàm với thời gian liên tục (ví dụ: $x^+(t)=\frac{d}{dt}x(t)$) và là toán tử đệ quy với thời gian là rời rạc (ví dụ: $x^+(t)=x(t+1)$).
-Để cho rõ, không gian các trạng thái liên tục là không gian Euclid n-chiều, và không gian các trạng thái rời rạc là chỉ số của tập $M$ với hữu hạn các phần tử. Thời gian là tập các số thực với thời gian là liên tục hay tập các số nguyên với thời gian là rời rạc.
-Ta có $m$ hệ thông con, được mô tả dưới dạng:
-\begin{equation} \label{eq2}
-x^+(t) = f_k(x(t))
+trong đó $x(t)\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma$ là trạng thái rời rạc nhận giá trị trong tập $M = \{1,...,m\}$ và $f_k, k\in M$ là trường véc-tơ. $x^+$ là toán tử đạo hàm với thời gian liên tục $t\in\mathbb{R}$ (tức là: $x^+(t)=\frac{d}{dt}x(t)$) và là toán tử dịch chuyển tịnh tiến với thời gian là rời rạc $t\in\mathbb{N}$ (tức là: $x^+(t)=x(t+1)$). Như vậy, không gian trạng thái liên tục là không gian Euclid n chiều và không gian trạng thái rời rạc là tập chỉ số $M$ có hữu hạn phần tử. Thời gian là tập các số thực với thời gian là liên tục hay là tập các số nguyên với thời gian là rời rạc. Dựa vào tính chất liên tục hoặc rời rạc của thời gian mà ta gọi hệ là hệ chuyển mạch liên tục hay hệ chuyển mạch rời rạc. Khi có $m$ hệ động lực con thì ta gọi là hệ chuyển mạch m-dạng và với $k\in M$ hệ được mô tả dưới dạng:
+\begin{equation} \label{eq1-2}
+x^+(t) = f_k(x(t)).
 \end{equation}
-với $k\in M$.
 
-Khi xét hệ có thời gian liên tục hay rời rạc ta thông nhất đặt $\mathcal{T}$ là tập thời gian, có thể đó là tập số thực $(\mathcal{T} = \mathbb{R})$ hay tập số nguyên $(\mathcal{T} = \mathbb{N})$. Cho số thực $s$, $\mathcal{T}_s$ là tập thời gian mà trong đó thời gian lớn hon hoặc bằng $s$ (ví du: $\mathcal{T}_s=\{t\in\mathcal{T} : t\geq s\}$). Cho hai số thực $t_1$ và $t_2$ với $t_1 < t_2$, khoảng thười gian $[t_1, t_2)$ được hiểu là
+Trạng thái rời rạc $\sigma$ được gọi là tín hiệu chuyển mạch. Nếu $\sigma(t)=i$ thì ta nói rằng hệ con thứ $i$ được kích hoạt tại thời điểm $t$. Đặc trưng cho tính chất của hệ chuyển mạch là tại một thời điểm có một và chỉ một hệ con được kích hoạt.\\
+
+Ký hiệu $\mathcal{T}$ là tập thời gian.$\mathcal{T}$ có thể đó là tập số thực $(\mathcal{T} = \mathbb{R})$ hay tập số nguyên $(\mathcal{T} = \mathbb{N})$. Cho một số thực $s$, ký hiệu $\mathcal{T}_s$ là tập thời gian mà trong đó thời gian lớn hon hoặc bằng $s$ (ví du: $\mathcal{T}_s=\{t\in\mathcal{T} : t\geq s\}$). Cho hai số thực $t_1$ và $t_2$ với $t_1 < t_2$, khoảng thời gian $[t_1, t_2)$ được hiểu là
 $$[t_1, t_2)=\{t\in\mathcal{T}: t\geq t_1, t<t_2\}.$$
-Mặt khác khoảng thời gian còn có thể hiểu là đoạn $t_2 - t_1$ với thời gian liên tục hay là các điểm thời gian trong $[t_1,t_2)$ với thời gian rời rạc. Cho hàm liên tục từng đoạn $\chi$ định nghĩa trong khoảng thời gian $[t_1,t_2)$ và thời điểm $t \in (t_1,t_2)$ như sau:
+Mặt khác khoảng thời gian còn có thể hiểu là đoạn $t_2 - t_1$ với thời gian liên tục hay là các điểm thời gian trong $[t_1,t_2)$ với thời gian rời rạc. 
+
+Cho hàm liên tục từng khúc $\chi$ xác định trên khoảng $[t_1,t_2)$ và thời điểm $t \in (t_1,t_2)$ như sau:
 $$\chi(t+)=\lim_{s\downarrow t}\chi(s), \chi(t-)=\lim_{s\uparrow t}\chi(s)$$
 với thời gian là liên tục và
 $$\chi(t+)=\chi(t+1), \chi(t-)=\chi(t-1)$$
 với thời gian là rời rạc.
-\section{Tính ổn định của hệ chuyển mạch}
-Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thông con đơn giản cố định. Như vậy ta cần xét đến tính ổn đinh của các hệ thông chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
-Gọi $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$, trong đó $\Lambda^x$ là tập khác rỗng và là tập con của $\mathcal{S}$, tập các tín hiệu chuyển. Được gọi là tập tín hiệu chuyển chấp nhận được nếu với mỗi trạng thái ban đàu đều được gán với một tập tín hiệu chuyển. Tập các trạng thái liên tục chấp nhận được định nghĩa bởi $\{\Gamma_x:x\in\mathbb{R}^n\}$, trong đó $\Gamma_x$ là tập các vết trạng thái với $x$ là trạng thái bắt đầu và tín hiệu chuyển $\Lambda^x$ :
-$$\Gamma_x = \{\phi(\cdot;0,x,\theta):\theta\in\Lambda^x\}.$$
-Hàm giá trị thực $\alpha :\mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{K}$ nếu nó liên tục tăng chặt và $\alpha(0)=0$. Với điều kiện hàm $\alpha$ không bị chặn còn được gọi là lớp $\mathcal{K}_\infty$. Hàm $\beta : \mathbb{R}_+ \times \mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{KL}$ nếu $\beta(\cdot,t)$ là lớp $\mathcal{K}$ với mỗi điểm cố định $t \geq 0$ và $\lim_{t\rightarrow +\infty}\beta(r,t)=0$ với mỗi $r\geq 0$ cố định.
 
-\begin{define} \label{def1-1} (Sự ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
-(1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ sao cho
+Khi các hệ con (\ref{eq2}) được cho trước, dáng điệu của hệ chuyển mạch được quyết định bởi tín hiệu chuyển mạch. Ta sẽ phân biệt quỹ đạo chuyển mạch, tín hiệu chuyển mạch và quy luật chuyển mạch.
+
+Một quỹ đạo chuyển mạch là một hàm liên tục phải, xác định trên một khoảng thời gian hữu hạn, nhận giá trị trong $M$.
+Cho trước khoảng thời gian $[t_0,t_f)$ với $-\infty < t_0 < t_f < +\infty$, một quỹ đạo chuyển mạch $p$ xác định trên đoạn đó được ký hiệu là $p_{[t_0,t_f)}$. Với một quỹ đạo chuyển mạch $p_{[t_0,t_f)}$, thời điểm $t\in (t_0,t_f)$ được gọi là thời điểm bước nhảy nếu:
+$$\sigma(t-)\neq\sigma(t).$$
+
+Giả sử rằng các thời điểm bước nhảy trong $(t_0, t_f)$ được sắp xếp theo thứ tự $t_1 < t_2 < t_3 < \cdots$, thì dãy $t_0,t_1,t_2\cdots$ được gọi là dãy thời điểm chuyển mạch của $\sigma$ trên $[t_0,t_f)$. Tương tự, dãy các trạng thái rời rạc được sắp thứ tự $\sigma(t_0),\sigma(t_1),\sigma(t_2)\cdots$ được gọi là dãy chỉ số chuyển mạch của $\sigma$ trên $[t_0,t_f)$. Dãy cặp thứ tự:
+$$(t_0,i_0),(t_1,i_1),\cdots,(t_s,i_s)$$
+với $i_k=\sigma(t_k)$, được gọi là dãy chuyển mạch của $\sigma$ trên $[t_0,t_f)$.\\
+Quỹ đạo chuyển mạch được gọi là hoàn toàn xác định nếu có một số hữu hạn thời điểm bước nhảy trên khoảng đó. Tập những quỹ đạo chuyển mạch hoàn toàn xác định trên $[t_0,t_f)$ được ký hiệu là $S_{[t_0,t_f)}$.
+
+Một tín hiệu chuyển mạch là một hàm xác định trên một khoảng thời gian vô hạn, nhận giá trị trong $M$.
+
+Giả sử rằng $\theta$ là một tín hiệu chuyển mạch xác định trên $[t_0,+\infty)$ và $[s_1,s_2)$ là đoạn con có độ dài hữu hạn của $[t_0,+\infty)$ thì quỹ đạo chuyển mạch $p_{[s_1,s_2)}$ được gọi là quỹ đạo con của $\theta$ nếu $p(t)=\theta(t)$ với mọi $t\in[s_1,s_2)$. Khái niệm dãy chỉ số và dãy thời điểm chuyển mạch được định nghĩa một cách tương tự như đối với quỹ đạo chuyển mạch.
+Một tín hiệu chuyển mạch được gọi là hoàn toàn xác định nếu tất cả các quỹ đạo con của nó là hoàn toàn xác định. Kí hiệu $\theta_{[t_0,+\infty)}$ là tín hiệu chuyển mạch $\theta$ xác định trên $[t_0,+\infty)$. Tập những tín hiệu chuyển mạch hoàn toàn xác định trên $[t_0,+\infty)$ được ký hiệu bởi $\mathcal{S}_{[t_0,+\infty)}$ hoặc $\mathcal{S}$ khi $t_0=0$.\\
+
+Cho trước một cặp hàm $(x(\cdot),\theta(\cdot))$ trên đoạn $[t_0,t_1)$, trong đó $x:[t_0,t_1)\mapsto\mathbb{R}^n$ là hàm liên tục và $\theta:[t_0,t_1)\mapsto M$ là hàm hằng từng khúc. Cặp $(x(\cdot),\theta(\cdot))$ được gọi là nghiệm của hệ (\ref{eq1-1}) trên $[t_0,t_1)$ nếu với hầu hết $t\in [t_0,t_1)$ ta có:
+$$x^+(t)=f_{\theta(t)}(x(t)).$$
+
+Hệ chuyển mạch (\ref{eq1-1}) được gọi là hoàn toàn xác định (xác định một cách toàn cục) nếu với bất kỳ $\theta\in\mathcal{S}_{[0,+\infty)}$ và $x_0\in\mathbb{R}^n$, tồn tại duy nhất một hàm liên tục $x$ trên $[0,+\infty)$ với $x(0)=x_0$ sao cho cặp $(x(\cdot),\theta(\cdot))$ là một nghiệm của hệ (\ref{eq1-1}) trên $[0,+\infty)$.\\
+Khi mỗi hệ con thỏa mãn điều kiện Lipchitz toàn cục:
+$$\limsup_{x_1\neq x_2}\frac{|f_k(x_1)-f_k(x_2)|}{|x_1-x_2|} < +\infty,\quad k\in M,$$
+thì hệ chuyển mạch là hoàn toàn xác định. Trong đồ án này, ta luôn giả thiết rằng các hệ con thỏa mãn điều kiện Lipchitz, và do đó tính hoàn toàn xác định của hệ luôn được đảm bảo.
+
+Một quy luật chuyển mạch là một quy tắc chuyển mạch mà sinh ra một quỹ đạo chuyển mạch hoặc một tín hiệu chuyển mạch từ một tập các cấu hình ban đầu. Trong đồ án này, ta chỉ xét những quy luật chuyển mạch có dạng:
+\begin{equation} \label{eq1-3}
+\sigma(t)=\phi(t,\sigma(t-),x(t)),
+\end{equation} 
+trong đó $\phi$là hàm hằng từng khúc nhận giá trị trong $M$.\\
+Một hàm $x(t)$ được gọi là một quỹ đạo trạng thái (liên tục) của hệ (\ref{1-1}) qua quy luật chuyển mạch (\ref{eq1-3}) trên $[t_0,t_1)$ nếu (\ref{eq1-1}) và (\ref{eq1-3}) đúng với hầu hết $t\in[t_0,t_1)$. Tín hiệu chuyển mạch tương ứng $\sigma$ được gọi là sinh bởi quy luật chuyển mạch (\ref{eq1-3}) dọc theo $x(\cdot)$ với trạng thái ban đầu $x_0$ trên $[t_0,t_1)$.
+
+Một quy luật chuyển mạch được gọi là hoàn toàn xác định nếu nó sinh ra một tín hiệu chuyển mạch hoàn toàn xác định với trạng thái ban đầu bất kỳ.
+
+Với hệ chuyển mạch (\ref{eq1-1}), một quy luật chuyển mạch hoàn toàn xác định có thể biểu diễn bởi tập $\{\theta^x:x\in\mathbb{R}^n\}$ trong đó $\theta^x$ là tín hiệu chuyển mạch được hoàn toàn xác định, sinh bởi quy luật chuyển mạch đó với trạng thái ban đàu $x$. Hệ chuyển mạch có nghiệm duy nhất với cấu hình ban đầu bất kỳ nếu cả hệ chuyển mạch và quy luật chuyển mạch hoàn toàn xác định. Để thuận tiên, ta ký hiệu quỹ đạo trạng thái liên tục bởi $\phi(\cdot;t_0,x_0,\sigma)$ hoặc $\phi(\cdot;x_0,\sigma)$ khi $t_0=0$.
+
+\section{Ví dụ về hệ chuyển mạch}
+Cho hệ phương trình trong $\mathbb{R}^2$:
+$$x^+(t) = 
+\begin{cases} 
+A_1x(t) \mbox{ nếu } x_2\geq 0, \\ 
+A_2x(t) \mbox{ nếu } x_2\leq 0,
+\end{cases}
+$$
+trong đó $x=(x_1,x_2)\in\mathbb{R}^2$, $t$ liên tục trên đoạn $[0,+\infty)$ và
+$$
+A_1 = \begin{bmatrix} -0.01 & -0.5 \\ 2 & -0.01 \end{bmatrix} ,\quad 
+A_2 = \begin{bmatrix} -0.01 & -2 \\ 0.5 & -0.01 \end{bmatrix} .
+$$
+Ma trận $A_1$ và $A_2$ đều có các giá trị riêng $-0.01\pm i$ nên từng hệ con đều ổn định tiệm cận. Tuy nhiên, tính ổn định của hệ ghép không chỉ phụ thuộc vào các hệ con mà còn phụ thuộc nhiều vào chế độ chuyển mạch giữa chúng.
+\section{Tính ổn định và khả ổn định của hệ chuyển mạch}
+Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thông con đơn giản cố định. Như vậy ta cần xét đến tính ổn đinh của các hệ thông chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
+Cho $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ với $\Lambda^x$ là tập con khác rỗng của $\mathcal{S}$ - tập các tín hiệu chuyển mạch. Tập này được gọi là tập các tín hiệu chuyển chấp nhận được nếu với mỗi trạng thái ban đầu đều được gán với một tập tín hiệu chuyển mạch. Tập này cảm sinh từ một tập chấp nhận được những quỹ đạo trạng thái liên tục $\{\Gamma_x:x\in\mathbb{R}^n\}$, trong đó $\Gamma_x$ là tập các quỹ đạo trạng thái với trạng thái bắt đầu $x$ và tín hiệu chuyển mạch trong $\Lambda^x$ :
+$$\Gamma_x = \{\phi(\cdot;0,x,\theta):\theta\in\Lambda^x\}.$$
+Hàm thực $\alpha :\mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{K}$ nếu nó là hàm liên tục, tăng chặt và $\alpha(0)=0$. Hàm $\alpha$ không bị chặn còn được gọi là lớp $\mathcal{K}_\infty$. Hàm $\beta : \mathbb{R}_+ \times \mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp $\mathcal{KL}$ nếu $\beta(\cdot,t)$ là lớp $\mathcal{K}$ với mỗi điểm cố định $t \geq 0$ và $\lim_{t\rightarrow +\infty}\beta(r,t)=0$ với mỗi $r\geq 0$ cố định.
+
+\begin{define} \label{def1-1} (Tính ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển mạch chấp nhận được. Hệ chuyển mạch \ref{eq1-1} được gọi là \\
+(1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ sao cho:
 $$|\phi(t;0,x_0,\theta)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
-(2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ sao cho
+(2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ sao cho:
 $$|\phi(t;0,x_0,\theta)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
-(3) ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ sao cho
+(3) ổn định mũ $\Upsilon$ nếu tồn tại các số thực dương $\alpha$ và $\beta$ sao cho:
 $$|\phi(t;0,x_0,\theta)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
 \end{define}
 
-\begin{define} (Tính ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
-(1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+\begin{define} (Tính khả ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển mạch chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
+(1) khả ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
 $$|\phi(t;0,x_0,\theta^x)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
-(2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+(2) khả tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
 $$|\phi(t;0,x_0,\theta^x)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
-(3) ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
+(3) khả ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
 $$|\phi(t;0,x_0,\theta^x)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
 \end{define}
+
+Khi các hệ con là cố định, tính chất ổn định được xác định bởi tập chấp nhận được các tín hiệu chuyển mạch. Nếu $\Upsilon_1\subseteq\Upsilon_2$ thì tính ổn định $\Upsilon_2$ kéo theo tính ổn định $\Upsilon_1$ và tính khả ổn định $\Upsilon_1$ kéo theo tính khả ổn định $\Upsilon_2$
 
 \chapter{Các hệ chuyển mạch}
 \section{Mở đầu}
