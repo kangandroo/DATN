@@ -25,6 +25,7 @@
 \newtheorem{lemma}[theorem]{Bổ đề}
 \newtheorem{corollary}[theorem]{Hệ quả}
 \newtheorem{proposition}[theorem]{Mệnh đề}
+\newtheorem{example}[theorem]{Ví dụ}
 
 %==================================// End dinh nghia cac goi lenh
 %//================================== Begin make title
@@ -78,8 +79,8 @@ Ts. Hà Thị Ngọc Yến
 \setlength{\baselineskip}{18truept}	%gian dong cho van ban
 %//==========================================Begin noi dung bai==
 
-\chapter{Các khái niệm cơ bản}
-\section{Hệ động lực chuyển mạch}
+\chapter{Giới thiệu về hệ chuyển mạch}
+\section{Khái niệm về hệ động lực chuyển mạch}
 Hệ động lực chuyển mạch là một hệ động lực mà việc chuyển đổi trạng thái có vai trò không nhất định trong vận hành cũng như sự ổn định của hệ. Cụ thể hơn, hệ động lực chuyển mạch là hệ ghép hai mức độ. Mức thấp được điều khiển bởi tập các trạng thái vận hành. Mỗi trạng thái vận hành được mô tả bằng một phương trình vi phân hoặc phương trình sai phân. Hệ động lực chuyển mạch tuân thủ nghiêm ngặt các nguyên tắc cơ bản:
 \begin{itemize}
   \item Mỗi thời điểm chỉ có đúng một trạng thái vận hành.
@@ -110,7 +111,7 @@ với thời gian là liên tục và
 $$\chi(t+)=\chi(t+1), \chi(t-)=\chi(t-1)$$
 với thời gian là rời rạc.
 
-Khi các hệ con (\ref{eq2}) được cho trước, dáng điệu của hệ chuyển mạch được quyết định bởi tín hiệu chuyển mạch. Ta sẽ phân biệt quỹ đạo chuyển mạch, tín hiệu chuyển mạch và quy luật chuyển mạch.
+Khi các hệ con (\ref{eq1-2}) được cho trước, dáng điệu của hệ chuyển mạch được quyết định bởi tín hiệu chuyển mạch. Ta sẽ phân biệt quỹ đạo chuyển mạch, tín hiệu chuyển mạch và quy luật chuyển mạch.
 
 Một quỹ đạo chuyển mạch là một hàm liên tục phải, xác định trên một khoảng thời gian hữu hạn, nhận giá trị trong $M$.
 Cho trước khoảng thời gian $[t_0,t_f)$ với $-\infty < t_0 < t_f < +\infty$, một quỹ đạo chuyển mạch $p$ xác định trên đoạn đó được ký hiệu là $p_{[t_0,t_f)}$. Với một quỹ đạo chuyển mạch $p_{[t_0,t_f)}$, thời điểm $t\in (t_0,t_f)$ được gọi là thời điểm bước nhảy nếu:
@@ -167,7 +168,7 @@ Hàm thực $\alpha :\mathbb{R}_+ \mapsto \mathbb{R}_+$ được gọi là lớp
 
 \begin{define} \label{def1-1} (Tính ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển mạch chấp nhận được. Hệ chuyển mạch \ref{eq1-1} được gọi là \\
 (1) ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ sao cho:
-$$|\phi(t;0,x_0,\theta)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
+$$|\phi(t;0,x_0,\theta)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbf{B}_\delta , \theta \in\Lambda^{x_0}$$
 (2) tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ sao cho:
 $$|\phi(t;0,x_0,\theta)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
 (3) ổn định mũ $\Upsilon$ nếu tồn tại các số thực dương $\alpha$ và $\beta$ sao cho:
@@ -176,7 +177,7 @@ $$|\phi(t;0,x_0,\theta)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\in
 
 \begin{define} (Tính khả ổn định) Giả sử $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ là tập các tín hiệu chuyển mạch chấp nhận được. Hệ chuyển mạch \ref{eq1} được gọi là \\
 (1) khả ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{K}$ hàm $\zeta$ và một số thực dương $\delta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
-$$|\phi(t;0,x_0,\theta^x)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{B}_\delta , \theta \in\Lambda^{x_0}$$
+$$|\phi(t;0,x_0,\theta^x)|\leq\zeta(|x_0|)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbf{B}_\delta , \theta \in\Lambda^{x_0}$$
 (2) khả tiệm cận ổn định $\Upsilon$ nếu tồn tại lớp $\mathcal{KL}$ hàm $\xi$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
 $$|\phi(t;0,x_0,\theta^x)|\leq\xi(|x_0|,t)\qquad\forall t \in [0,+\infty ), x_0 \in\mathbb{R}^n , \theta \in\Lambda^{x_0}$$
 (3) khả ổn định mũ $\Upsilon$ nếu tồn tại số thực dương $\alpha$ và $\beta$ và luật chuyển $\{\theta^x:x\in\mathbb{R}^n\}$ với $\theta^x\in\Lambda^x$ sao cho
@@ -185,9 +186,55 @@ $$|\phi(t;0,x_0,\theta^x)|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [0,+\
 
 Khi các hệ con là cố định, tính chất ổn định được xác định bởi tập chấp nhận được các tín hiệu chuyển mạch. Nếu $\Upsilon_1\subseteq\Upsilon_2$ thì tính ổn định $\Upsilon_2$ kéo theo tính ổn định $\Upsilon_1$ và tính khả ổn định $\Upsilon_1$ kéo theo tính khả ổn định $\Upsilon_2$
 
-\chapter{Các hệ chuyển mạch}
-\section{Mở đầu}
-Trong chương này, ta xét hệ động lực chuyển mạch sau:
+\section{Tính ổn định đảm bảo dưới sự chuyển mạch tùy ý}
+Khi sự chuyển mạch giữa các hệ con xuất hiện theo cách bất kỳ thì khi đó tính ổn định được gọi là tính ổn định đảm bảo. Tập chấp nhận được các tín hiểu chuyển mạch được cho bởi:
+
+$$\Upsilon_{as}=\{\Lambda^x:x\in\mathbb{R}^n\},\quad \Lambda^x=\mathcal{S},\forall x\in\mathbb{R}^n$$
+là tập lớn nhất trong tất cả các tập chấp nhận được các tín hiệu chuyển mạch. Do đó, tính ổn định đảm bảo là khái niệm chặt nhất trong các khái niệm ổn định. Đặc biệt, khi hệ chuyển mạch ổn định đảm bảo sẽ kéo theo tính ổn định của các hệ con. Điều ngược lại không đúng và được chứng minh thông qua ví dụ sau.\\
+\begin{example}
+Cho hai hệ con tuyến tính phẳng:
+$$\dot{x}=A_1x=
+\begin{bmatrix}
+0 & 1\\
+-1 & -1
+\end{bmatrix}x$$
+và
+$$\dot{x}=A_2x=
+\begin{bmatrix}
+0 & 1\\
+-1-3a & -1-a
+\end{bmatrix}x,$$
+trong đó $a$ là một tham số thực không âm. Do các trị riêng của cả hai hệ con đều có phần thực âm nên chúng đều ổn định mũ. Khi $a=0$ thì hai hệ con trùng nhau nên hệ chuyển mạch là ổn định mũ đảm bảo. Khi $a\approx 36.512$ thì hệ chuyển mạch là ổn định biên đảm bảo. Khi $a>36.512$ hệ chuyển mạch không ổn định đảm bảo.
+\end{example}
+
+\section{Tính ổn định thời gian chững}
+Một tín hiệu chuyển mạch được gọi là thời gian chững $\tau$ nếu $t_{i+1}-t_i\geq\tau$ với $t_i$ và $t_{i+1}$ là hai thời điểm bước nhảy liên tiếp bất kỳ. Cho $\mathcal{S}_\tau$ là tập tín hiệu chuyển mạch hoàn toàn xác định với thời gian chững $\tau$. Rõ ràng rằng $\mathcal{S}=\mathcal{S}_0\supseteq\mathcal{S}_{\tau_1}\supseteq\mathcal{S}_{\tau_2}$ với $0\leq\tau_1\leq\tau_2$, và quan hệ tập con là chặt nếu $0<\tau_1<\tau_2$.\\
+
+Tập tín hiệu chuyển mạch $\mathcal{S}$ cho phép sự điều khiển chuyển mạch nhanh một cách tùy ý, thậm chí không có một thời gian chững đều giữa các thời điểm chuyển mạch.\\
+
+Ví dụ, cho tín hiệu chuyển mạch:
+
+$$\theta(t)=\begin{cases}
+1\quad\text{nếu } t\in[k,k+\frac{1}{k+2}), k=0,1,2,\cdots,\\
+2\quad\text{các trường hợp khác}
+\end{cases}$$
+là hoàn toàn xác định, nhưng độ dài của khoảng thời gian chuyển mạch $[k,k+\frac{1}{k+2})$ tiến dần tới $0$ khi $k\rightarrow +\infty$. Rõ ràng những tín hiệu chuyển mạch này thuộc $\mathcal{S}_0$ nhưng nó không thuộc bất kỳ $\mathcal{S}_\tau$ nào với $\tau>0$.\\
+
+Cố định $\tau \geq 0$, cho một tập chấp nhận được các tín hiệu chuyển mạch:
+$$\Upsilon_\tau=\{\Lambda^x:x\in\mathbb{R}^n\},\quad \Lambda^x=\mathcal{S}_\tau,\forall x\in\mathbb{R}^n.$$
+Tính ổn định của hệ chuyển mạch theo $\Upsilon_\tau$ được gọi là tính ổn định thời gian chững $\tau$. Một điều kiện cần đối với tính ổn định thời gian chững $\tau$ là mỗi hệ con đều ổn định. Điều ngược lại đúng cho trường hợp ổn định mũ, tức là nếu các hệ con ổn định mũ thì hệ chuyển mạch ổn định mũ thời gian chững $\tau$ với $\tau$ đủ lớn. Thật vậy, từ tính ổn định mũ của các hệ con, ta suy ra sự tồn tại của một thời gian $T>0$ sao cho:
+$$|\phi_i(t;x_0)|\leq\frac{1}{2}|x_0|\quad\forall t\in\mathcal{T}_T,x_0\in\mathbb{R}^n,$$
+trong đó $\phi_i(\cdot;x_0)$ ký hiệu cho quỹ đạo trạng thái của hệ con thứ $i$ với $x(0) = x_0$. Do đó hệ chuyển mạch là ổn định mũ thời gian chững $\tau$. Tuy nhiên, khẳng định này không đúng cho trường hợp ổn định tiệm cận và ổn định biên.
+
+\begin{example}
+Cho 
+\end{example}
+
+\chapter{Tính ổn định của hệ chuyển mạch dưới sự chuyển mạch tùy ý}
+\section{Một số khái niệm cơ bản}
+Trong chương này, ta sử dụng thuạt ngữ "ổn đinh đảm bảo" để mô tả tính ổn định của hệ chuyển mạch khi sự chuyển mạch xuất hiện một cách tùy ý.\\
+
+Xét hệ động lực chuyển mạch sau:
 \begin{equation} \label{eq2-1}
 x^+(t)=f(x(t),\sigma (t)),
 \end{equation}
@@ -222,14 +269,14 @@ trong đó $\circ$ là hàm hợp, $f_1 \circ f_2(x) = f_1(f_2(x))$. Với thờ
 \end{equation}
 
 trong đó $\Phi^f_t(x_0)$ là giá trị của tích phân hàm $f$ đi qua $x(0)=x_0$ và $(t_0,i_0),\cdots ,(t_s,i_s)$ là trình tự chuyển của $\sigma$ trong $[t_0,t)$.\\
-Để đưa ra định nghĩa về tính ổn định của hệ chuyển mạch, ta cần thêm một vài định nghĩa sau. Gọi $d(x,y)$ là khoảng cách Euclide giữa $x$ và $y$. Cho tập $\Omega \subset\mathbb{R}^n$ và véc-tơ $x\in\mathbb{R}^n$, đặt $|x|_\Omega = \inf_{y\in\Omega}d(x,y)$. Cho tập $\Omega\subset\mathbb{R}^n$ và một số thực dương $\tau$, gọi $\mathbb{B}(\Omega , \tau)$ là $\tau$-lân cận của $\Omega$ :
-$$\mathbb{B}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega\leq\tau\}.$$
+Để đưa ra định nghĩa về tính ổn định của hệ chuyển mạch, ta cần thêm một vài định nghĩa sau. Gọi $d(x,y)$ là khoảng cách Euclide giữa $x$ và $y$. Cho tập $\Omega \subset\mathbb{R}^n$ và véc-tơ $x\in\mathbb{R}^n$, đặt $|x|_\Omega = \inf_{y\in\Omega}d(x,y)$. Cho tập $\Omega\subset\mathbb{R}^n$ và một số thực dương $\tau$, gọi $\mathbf{B}(\Omega , \tau)$ là $\tau$-lân cận của $\Omega$ :
+$$\mathbf{B}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega\leq\tau\}.$$
 
-Tương tự, gọi $\mathbb{H}(\Omega,\tau)$ là $\tau$-mặt cầu của $\Omega$ :
+Tương tự, gọi $\mathbf{H}(\Omega,\tau)$ là $\tau$-mặt cầu của $\Omega$ :
 
-$$\mathbb{H}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega=\tau\}.$$
+$$\mathbf{H}(\Omega,\tau)=\{x\in\mathbb{R}^n:|x|_\Omega=\tau\}.$$
 
-Đặc biệt, hình cầu đóng $\mathbb{B}(\{0\},\tau)$ được ký hiệu là $\mathbb{B}_\tau$, và mặt cầu $\mathbb{H}(\{0\},\tau)$ được ký hiệu là $\mathbb{H}_\tau$.
+Đặc biệt, hình cầu đóng $\mathbf{B}(\{0\},\tau)$ được ký hiệu là $\mathbf{B}_\tau$, và mặt cầu $\mathbf{H}(\{0\},\tau)$ được ký hiệu là $\mathbf{H}_\tau$.
 
 \begin{define}
 Gốc cân bằng của hệ \ref{eq2-2} được gọi là\\
@@ -256,7 +303,8 @@ Trong phần này, ta sẽ xét vấn đề ổn định của hệ chuyển m�
 \begin{equation} \label{eq2-6}
 x^+(t)=f_{\sigma (t)}(x(t))
 \end{equation}
-\subsection{Hàm Lyapunov}
+dưới sự chuyển mạch bất kỳ.
+\subsection{Hàm Lyapunov chung}
 Hàm liên tục $V(x): \mathbb{R}^n\mapsto \mathbb{R}$ với $V(0)=0$ là:\\
 (1) xác định dương $(V(x)\succ 0)$ nếu $V(x)>0\forall x\in\mathbb{R}^n-\{0\}$ \\
 (2) nửa xác định dương $(V(x)\succeq 0)$ nếu $V(x)\geq 0\forall x\in\mathbb{R}^n$ \\
@@ -290,11 +338,11 @@ Với thời gian là liên tục thì
 \begin{equation} \label{eq2-8}
 \mathcal{D}^+V(x)|_{f_i}=\limsup_{\tau\rightarrow 0^+}\frac{V(x+f_i(x)\tau)-V(x)}{\tau}\qquad\forall x\in\mathbb{R}^n,i\in M,
 \end{equation}
-do sự liên tục Lipschitz địa phương của $V$. Cho hàm khả vi liên tục $V$ ta có
+do tính liên tục Lipschitz địa phương của $V$. Cho hàm khả vi liên tục $V$ ta có
 $$\mathcal{D}^+V(x)|_f=\frac{d}{dt}V(x)=L_fV(x)=\frac{\partial}{\partial x}V(x)f(x).$$
 Giả sử hệ (\ref{eq2-6}) chấp nhận một hàm Lyapunov yếu. Với mọi vết trạng thái $x(t)=\phi(t;x_0,\sigma)$ trên $\sigma$, ta có $V(x(t))\leq V(x_0)$ với mọi $t\geq 0$. Với mọi $\epsilon >0$, chọn $\delta$ sao cho
-$$\mathbb{B}_\delta\subset\Omega , \qquad\{x:V(x)\leq\delta\}\subset\mathbb{B}_\epsilon .$$
-Ta có $|x(t)|\leq\epsilon$ với mọi $t\geq 0$ nếu $x_0 \in\mathbb{B}_\delta$ thì hệ là ổn định đều.\\
+$$\mathbf{B}_\delta\subset\Omega , \qquad\{x:V(x)\leq\delta\}\subset\mathbf{B}_\epsilon .$$
+Ta có $|x(t)|\leq\epsilon$ với mọi $t\geq 0$ nếu $x_0 \in\mathbf{B}_\delta$ thì hệ là ổn định đều.\\
 Giả sử hệ (\ref{eq2-6}) chấp nhận hàm Lyapunov $V$. Ta chỉ ra rằng hệ là tiệm cận ổn định. Ta giả sử hệ là với thời gian liên tục, và với trường hợp thời gian rời rạc chỉ thể chỉ ra theo một cách tương tự. Cố định trạng thái bắt đầu $x_0 \neq 0$ và tín hiệu chuyển $\sigma$, và $x(t)=x(t;x_0,\sigma)$. Theo định nghĩa \ref{def2-4}
 \begin{equation} \label{eq2-9}
 \limsup_{\tau\rightarrow 0^+}\frac{V(x(t+\tau))-V(x)}{\tau}\leq -\alpha_4(V(x(t)))\qquad\forall t\in\mathcal{T}_0,
@@ -311,6 +359,31 @@ $\eta$ là hàm giảm, khả vi, và $\lim_{t\downarrow 0}\eta(t)=+\infty$. T�
 \begin{equation} \label{eq2-10}
 \eta (V(x(t))) - \eta (V(x_0)) = \int_0^1\dot{\eta}(V(x(\tau)))dV(x(s)) \geq \int_0^11ds=t\qquad\forall t\geq 0
 \end{equation}
+Cho hàm $\pi:\mathbb{R}_+\times\mathbb{R}_+\mapsto\mathbb{R}_+$ xác định bởi:
+$$\pi(s,t)=
+\begin{cases}
+0, \quad s=0,\\
+\eta^{-1}(\eta(s)+t), s>0.
+\end{cases}$$
+Ta thấy $\pi$ thuộc lớp $\mathcal{KL}$. Vì $\eta$ tăng chặt nên từ (\ref{eq2-10}) ta có:
+$$V(x(t))\leq\pi(V(x_0),t)\quad\forall t\geq 0.$$
+Lấy hàm $\beta$ thuộc lớp $\mathcal{KL}$ xác định bởi công thức:
+$$\beta(s,t)=\alpha_1^{-1}(\pi(\alpha_2(s),t)), \quad s,t\in\mathbb{R}_+.$$
+Có thể thấy rằng 
+$$|x(t)|\leq\beta(|x_0|,t)\quad\forall t\geq 0.$$
+Với $\epsilon>0$ bất kỳ, lấy $\delta=\overline{\beta}^{-1}(\epsilon)$ với $\overline{\beta}(\cdot)=\beta(\cdot,0).$ Khi đó ta có:
+$$|\phi(t;0,x,\sigma)|\leq\epsilon\quad\forall x_0\in\mathbf{B}_\delta,t\in\mathcal{T}_0,\sigma\in\mathcal{S}.$$
+Từ đó suy ra hệ ổn định đều.\\
+Mặt khác, với $\epsilon >0$ và $\delta >0$ bất kỳ, cho $T=\widehat{\beta}^{-1}(\epsilon)$ với $\widehat{\beta}(\cdot)=\beta(\delta,\cdot)$ suy ra:
+$$|\phi(t;0,x,\sigma)|\leq\epsilon\quad\forall x_0\in\mathbf{B}_\delta,t\in\mathcal{T}_T,\sigma\in\mathcal{S}.$$
+Vậy hệ là hút đều. Từ đó suy ra hệ ổn định tiệm cận đều.\\
+Tổng kết, ta có mệnh đề dưới đây:
+\begin{proposition}
+Hệ chuyển mạch \ref{eq2-6} ổn định đều nếu nếu nó có một hàm Lyapunov chung yếu, và ổn định tiệm cận đều nếu nó có một hàm Lyapunov chung.
+\end{proposition}
+
+\subsection{Định lý Lyapunov đảo}
+
 
 \section{Hệ chuyển mạch tuyến tính}
 Trong phần này, ta tập trung vào một hệ chuyển mạch đặc biệt nhưng cũng rất quan trọng, hệ mà trong đó các hệ con đều là tuyến tính không đổi theo thời gian. Các hệ này được gọi là hệ chuyển mạch tuyến tính và có dạng:
@@ -384,11 +457,11 @@ Các phát biểu sau là tương đương:\\
 
 \begin{proposition} \label{pro2-13}
 Các phát biểu sau là tương đương:\\
-(1) Hệ chuyển mạch tuyến tính là hút.
-(2) Hệ chuyển mạch tuyến tính là hút đều.
-(3) Hệ chuyển mạch tuyến tính là tiệm cận ổn định.
-(4) Hệ chuyển mạch tuyến tính là tiệm cận ổn định đều.
-(5) Hệ chuyển mạch tuyến tính là ổn định mũ.
+(1) Hệ chuyển mạch tuyến tính là hút.\\
+(2) Hệ chuyển mạch tuyến tính là hút đều.\\
+(3) Hệ chuyển mạch tuyến tính là tiệm cận ổn định.\\
+(4) Hệ chuyển mạch tuyến tính là tiệm cận ổn định đều.\\
+(5) Hệ chuyển mạch tuyến tính là ổn định mũ.\\
 (6) Hệ chuyển mạch tuyến tính là ổn định mũ đều.
 \end{proposition}
 
