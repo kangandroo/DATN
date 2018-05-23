@@ -9,5 +9,6 @@
 \contentsline {section}{\numberline {2.2}H\IeC {\d \ecircumflex } chuy\IeC {\h \ecircumflex }n m\IeC {\d a}ch phi tuy\IeC {\'\ecircumflex }n}{12}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}H\IeC {\`a}m Lyapunov chung}{12}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}\IeC {\DJ }\IeC {\d i}nh l\IeC {\'y} Lyapunov \IeC {\dj }\IeC {\h a}o}{15}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}H\IeC {\d \ecircumflex } chuy\IeC {\h \ecircumflex }n m\IeC {\d a}ch tuy\IeC {\'\ecircumflex }n t\IeC {\'\i }nh}{15}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}H\IeC {\d \ecircumflex } n\IeC {\'\ohorn }i l\IeC {\h o}ng}{16}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.3}H\IeC {\d \ecircumflex } chuy\IeC {\h \ecircumflex }n m\IeC {\d a}ch tuy\IeC {\'\ecircumflex }n t\IeC {\'\i }nh}{17}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}H\IeC {\d \ecircumflex } n\IeC {\'\ohorn }i l\IeC {\h o}ng}{18}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}H\IeC {\`a}m Lyapunov ph\IeC {\h \ocircumflex } d\IeC {\d u}ng}{23}{subsection.2.3.2}
