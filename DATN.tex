@@ -719,5 +719,193 @@ Do đó $V$ là liên tục Lipchitz toàn cục. Rõ ràng $V$ là $0-$đối x
 
 Một hệ chuyển mạch tuyến tính $\mathbf{A}$ được gọi là chính quy nếu $\varrho(\mathbf{A})$ là hữu hạn, trong đó $\varrho(\mathbf{A})$ là tốc độ phân kỳ lớn nhất được định nghĩa trong (\ref{eq2-28}). Rõ ràng hệ chuyển mạch tuyến tính liên tục bất kỳ là chính quy và một hệ rời rạc là chính quy nếu $\varrho(\mathbf{A})\neq -\infty$. Với hệ chuyển mạch tuyến tính liên tục $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$, hệ chuyển mạch chuẩn hóa là hệ chuyển mạch $\bar{\mathbf{A}}=\{A_1-\varrho(\mathbf{A})I_n,\cdots,A_m\varrho(\mathbf{A})I_n\}$. Một cách tương tự, đối với hệ rời rạc chính quy $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$, hệ chuẩn hóa của nó là hệ chuyển mạch $\bar{\mathbf{A}}=\{\frac{A_1}{e^\varrho(\mathbf{A})},\cdots,\frac{A_m}{e^\varrho(\mathbf{A})}\}$. Một hệ chuẩn hóa bất kỳ hoặc là ổn định biên, hoặc là không ổn định biên.
 
+\subsection{Tiêu chuẩn đại số}
+Trên thực tế, đã có rất nhiều nỗ lực của các nhà toán học để tìm ra tiêu chuẩn đại số cho tính ổn định của hệ chuyển mạch. Phần này sẽ trình bày về một số điều kiện đại số cho tính ổn định của hệ chuyển mạch tuyến tính.\\
+
+Giả sử rằng, $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$ là một tập hữu hạn các ma trận trong $\mathbb{R}^{n\times n}$. Với $k\in\mathbb{Z}^+$, ký hiệu $\Pi_k(\mathbf{A})$ là tập các tích có độ dài $k$ của $\mathbf{A}$, tức là
+$$\Pi_k(\mathbf{A})=\{A_{i_1}\cdots A_{i_k} : i_1,\cdots ,i_k\in M\}$$
+và
+$$\Pi(\mathbf{A})=\bigcup_{k\in\mathbb{Z}^+}\Pi_k(\mathbf{A})$$
+là tập tất cả các tích mà các thừa số là các phần tử của $\mathbf{A}$.\\
+
+Cho $||\cdot||$ là một chuẩn ma trận được cảm sinh từ chuẩn vectơ bất kỳ, và $\rho(\cdot)$ là bán kính phổ của ma trận. Định nghĩa
+\begin{equation} \label{eq2-34}
+\widehat{\rho}_k(\mathbf{A})=\text{max}\{||P||:P\in\Pi_k(\mathbf{A})\}
+\end{equation}
+là chuẩn lớn nhất của tất cả các tích $k$ ma trận của tập $\mathbf{A}$. Đặc biệt, ký hiệu cho $\widehat{\rho}_1(\mathbf{A})$ bởi $||\mathbf{A}||$. Bán kính phổ chung của $\mathbf{A}$ được xác định bởi:
+\begin{equation} \label{eq2-35}
+\widehat{\rho}(\mathbf{A})=\limsup_{k\rightarrow +\infty}\widehat{\rho}_k(\mathbf{A})^\frac{1}{k}
+\end{equation}
+là chuẩn tiệm cận lớn nhất của tích các ma trận. Rõ ràng $\widehat{\rho}(\mathbf{A})$ không phụ thuộc vào việc chọn chuẩn do tính tương đương giữa các chuẩn. Tương tự, ta định nghĩa đại lượng:
+$$\bar{\rho}_k(\mathbf{A})=\text{max}\{\rho(P):P\in\Pi_k(\mathbf{A})\}$$
+là bán kính phổ lớn nhất của tất cả các tích $k$ ma trận của $\mathbf{A}$. Hơn nữa, ta định nghĩa bán kính phổ tổng quát của $\mathbf{A}$ như sau:
+\begin{equation} \label{eq2-36}
+\bar{\rho}(\mathbf{A})=\limsup_{k\rightarrow +\infty}\bar{\rho}_k(\mathbf{A})^\frac{1}{k}
+\end{equation}
+là bán kính phổ tiệm cận lớn nhất của tích các ma trận.\\
+
+Nhắc lại rằng, với một ma trận $A$ ta có:
+$$\lim_{k\rightarrow +\infty}||A^k||^\frac{1}{k}=\lim_{k\rightarrow +\infty}\rho(A^k)^\frac{1}{k}=\rho(A).$$
+
+Bây giờ ta sẽ biểu diễn một vài tính chất của bán kính phổ chung và bán kính phổ tổng quát.\\
+
+Cho $\Upsilon$ là tập các chuẩn vectơ trong $\mathbb{R}^n$. Với một tập các ma trận $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$ và một chuẩn $|\cdot|\in\Upsilon$, ta định nghĩa chuẩn (được cảm sinh) của $\mathbf{A}$ là
+$$||\mathbf{A}||=\max_{x\neq 0,i\in M}\frac{|A_ix|}{|x|}.$$
+Chuẩn nhỏ nhất của $\mathbf{A}$ được định nghĩa bởi:
+$$LN_\mathbf{A}=\inf_{|\cdot|\in\Upsilon}||\mathbf{A}||.$$
+Một chuẩn $||\cdot||^*$ là một chuẩn cực biên của $\mathbf{A}$ nếu:
+$$||\mathbf{A}||^*=LN_\mathbf{A}.$$
+Với mỗi số thực $\mu, \mu\mathbf{A}$ là ký hiệu cho tập ma trận $\{\mu A_1,\cdots,\mu A_m\}$.
+\begin{lemma} \label{le2-22}
+Giả sử $\mathbf{A}$ là một tập các ma trận thực. Khi đó các mệnh đề dưới đây là đúng\\
+(1) $\bar{\rho}(\mathbf{A})\leq\widehat{\rho}(\mathbf{A})\leq LN_\mathbf{A}$.\\
+(2) $\bar{\rho}(\mu\mathbf{A})=|\mu|\bar{\rho}(\mathbf{A})$ và $\widehat{\rho}(\mu\mathbf{A})=|\mu|\widehat{\rho}(\mathbf{A}) \forall \mu\in\mathbb{R}$.\\
+(3) $\bar{\rho}(\mathbf{A})<1$ suy ra tính ổn định của $\mathbf{A}$.
+\end{lemma}
+\textit{Chứng minh.} Ta có $\rho(A)\leq ||A||$ với chuẩn $||\cdot||$ bất kỳ. Khi đó:
+$$\bar{\rho}_k(\mathbf{A})\leq\widehat{\rho}_k(\mathbf{A}),$$
+Điều này suy ra
+$$\bar{\rho}(\mathbf{A})\leq\widehat{\rho}(\mathbf{A}).$$
+Mặt khác, ta lại có: $\widehat{\rho}\leq ||\mathbf{A}||$ nên suy ra: $\widehat{\rho}(\mathbf{A})\leq LN_\mathbf{A}$.\\
+Mệnh đề thứ hai được suy ra từ tính chất tuyến tính của bán kính phổ.\\
+Cuối cùng, ta thấy rằng nếu $\bar{\rho}(\mathbf{A})<1$ thì
+$$\lim_{t\rightarrow\infty}\Phi(t;0,\sigma)=0\quad\forall\sigma\in\mathcal{S}.$$
+Từ đó suy ra hệ chuyển mạch là hút và do đó nó ổn định. Mệnh đề thứ ba được chứng minh.
+
+\begin{theorem} \label{the2-23}
+Với hệ chuyển mạch tuyến tính $\mathbf{A}$ bất kỳ, ta có:
+\begin{equation} \label{eq2-37}
+\bar{\rho}(\mathbf{A})=\widehat{\rho}(\mathbf{A})=LN_\mathbf{A}=\exp(\varrho(\mathbf{A})).
+\end{equation}
+\end{theorem}
+\textit{Chứng minh.} Từ bổ đề (\ref{le2-22}), để chứng minh $\bar{\rho}(\mathbf{A})=\widehat{\rho}(\mathbf{A})=LN_\mathbf{A}$, ta chỉ cần chứng minh $\bar{\rho}(\mathbf{A})\geq LN_\mathbf{A}$. Giả sử phản chứng rằng $\bar{\rho}(\mathbf{A})<LN_\mathbf{A}$. Cố định một số thực $\mu$ sao cho $\bar{\rho}(\mathbf{A})<\mu<LN_\mathbf{A}$. Đặt
+$$B_i=\frac{A_i}{\mu}, \quad i=1,2,\cdots,m$$
+và
+$$\mathbf{B}=\{B_1,\cdots,B_m\}.$$
+Từ bổ đề (\ref{le2-22}) ta suy ra:
+\begin{equation} \label{eq2-38}
+\bar{\rho}(\mathbf{B})<1<LN_\mathbf{B}.
+\end{equation}
+Áp dụng bổ đề (\ref{le2-22}) ta có hệ chuyển mạch tuyến tính $\mathbf{B}$ là ổn định. Khi đó, từ định lý (\ref{the2-18}), tồn tại một chuẩn $V$ như một hàm Lyapunov chung của hệ chuyển mạch. Ta luôn có:
+$$LN_\mathbf{B}\leq||\mathbf{B}||\leq 1.$$
+Điều này mâu thuẫn với (\ref{eq2-38}). Vậy điều giả sử trên là sai. Do đó
+$$\bar{\rho}(\mathbf{A})=\widehat{\rho}(\mathbf{A})=LN_\mathbf{A}.$$
+Mặt khác, theo định nghĩa số mũ Lyapunov lớn nhất trong (\ref{eq2-28}) ta có:
+$$\exp(\rho(\mathbf{A}))\leq LN_\mathbf{A}.$$
+Chứng minh tương tự như trên ta có $\exp(\rho(\mathbf{A}))=LN_\mathbf{A}$. \\
+Vậy định lý được chứng minh.
+
+\begin{corollary} \label{co2-24}
+Hệ chuyển mạch tuyến tính rời rạc là ổn định khi và chỉ khi bán kính phổ nhỏ hơn 1 và không ổn định khi và chỉ khi bán kính phổ lớn hơn 1.
+\end{corollary}
+
+Hệ quả này đưa ra một tiêu chuẩn mới cho tính ổn định của hệ chuyển mạch tuyến tính bằng việc sử dụng bán kính phổ và cũng chính là một mở rộng của tiêu chuẩn bán kính phổ cho hệ tuyến tính bất biến theo thời gian.
+
+\begin{proposition} \label{pro2-25}
+Hệ chuyển mạch tuyến tính rời rạc $\mathbf{A}$ là ổn định biên khi và chỉ khi nó có một chuẩn cực biên với $||\mathbf{A}||^*=1$.
+\end{proposition}
+\textit{Chứng minh.} Giả sử hệ ổn định biên, ta cần chứng minh tồn tại một chuẩn cực biên $||\mathbf{A}||^*=1$. Từ mệnh đề (\ref{pro2-21}) ta suy ra được sự tồn tại của một chuẩn Lyapunov chung yếu $V$. Theo định nghĩa hàm Lyapunov chung yếu ta có:
+$$V(A_i(x))\leq V(x)\quad\forall i\in M, x\in\mathbb{R}^n.$$
+Từ đó suy ra được $||\mathbf{A}||_V\leq 1$.\\
+Giả sử $LN_\mathbf{A}<1$ thì hệ chuyển mạch ổn định tiệm cận, mâu thuẫn với giả thiết hệ ổn định biên. Vậy $LN_\mathbf{A} \geq 1$. Mặt khác, do $LN_\mathbf{A}\leq ||\mathbf{A}||_V$ nên $LN_\mathbf{A}=||\mathbf{A}||_V=1$. Vậy $||\cdot||_V$ là một chuẩn cực biên của hệ chuyển mạch.\\
+
+Ngược lại, giả sử hệ chuyển mạch có một chuẩn cực biên $||\cdot||$ với $||\mathbf{A}||=LN_\mathbf{A}=1$. Khi đó, hệ ổn định hoặc hệ ổn định biên.\\
+Giả sử hệ ổn định, khi đó có một chuẩn Lyapunov chung $V_0$ sao cho:
+$$V_0(A_ix)-V_0(x)\leq -\omega (x)\quad\forall x\in\mathbb{R}^n,i\in M,$$
+trong đó $\omega$ là hàm xác định dương, liên tục. Lấy $\beta =\min_{V_0(x)=1}\omega(x)$. Khi đó:
+$$V_0(A_ix)-V_0(x)\leq -\beta V_0(x)\quad\forall x\in\mathbb{R}^n,i\in M.$$
+nên $||\mathbf{A}||_{V_0}\leq 1-\beta$. Điều này mâu thuẫn với giả thiết. Vậy hệ ổn định biên.\\
+
+Ta xét trường hợp hệ liên tục. Với chuẩn $|\cdot|$ bất kỳ trong $\mathbb{R}^n$, độ đo ma trận được cảm sinh trên $\mathbb{R}^{n\times n}$ được định nghĩa như sau:
+\begin{equation} \label{eq2-39}
+\mu_{|\cdot|}(A)=\limsup_{\tau \rightarrow 0^+,|x|=1}\frac{|x+\tau Ax|-|x|}{\tau}.
+\end{equation}
+Độ đo ma trận có các tính chất sau (xem thêm [\ref{ref3}]) (để ngắn gọn ta lược bỏ chỉ số ở dưới $|\cdot|$)\\
+(1) \textit{Tính hoàn toàn xác định.} Độ đo ma trận hoàn toàn xác định với chuẩn vectơ bất kỳ.\\
+(2) \textit{Tính thuần nhất dương.} $\mu (\alpha A)=\alpha\mu (A)\forall\alpha\geq 0$ và $A\in\mathbb{R}^{n\times n}$.\\
+(3) \textit{Tính lồi.} $\mu (\alpha A+(1-\alpha)B)\leq \alpha\mu(A)+(1-\alpha)\mu(B)\quad\forall\alpha\in [0,1]$ và $A,B\in\mathbb{R}^{n\times n}$.\\
+(4) \textit{Ước lượng mũ.} $|e^{At}|\leq e^{\mu (A)t}|x|\quad\forall t\geq 0,x\in\mathbb{R}^n$ và $A\in\mathbb{R}^{n\times n}$.\\
+
+Định nghĩa độ đo của một ma trận được mở rộng cho một tập các ma trận $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$ như sau:\\
+Với mỗi tập các ma trận $\mathbf{A}=\{A_1,A_2,\cdots,A_m\}$ và một chuẩn $|\cdot|$ trong $\mathbb{R}^n$, độ đo (được cảm sinh) của $\mathbf{A}$ theo $|\cdot|$ được xác định như sau:
+\begin{equation} \label{eq2-40}
+\mu_{|\cdot|}(\mathbf{A})=\max\{\mu_{|\cdot|}(A_1),\cdots,\mu_{|\cdot|}(A_m)\}.
+\end{equation}
+Có thể kiểm tra rằng, độ đo này có tính lồi và tính thuần nhất dương như độ đo của một ma trận. Với tính chất ước lượng mũ ta có:
+\begin{equation} \label{eq2-41}
+|\phi(t;0,x,\sigma)|\leq e^{\mu_{|\cdot|}(\mathbf{A})_t}|x|\quad\forall t\geq 0,x\in\mathbb{R}^n,\sigma\in\mathcal{S}.
+\end{equation}
+Hơn nữa, ta có định nghĩa độ đo nhỏ nhất như sau:
+\begin{equation} \label{eq2-42}
+\nu(\mathbf{A})=\inf_{|\cdot|\in\Upsilon}\mu_{|\cdot|}(\mathbf{A}).
+\end{equation}
+Độ đo tập ma trận $\mu$ bất kỳ với $\mu(\mathbf{A})=\nu(\mathbf{A})$ được gọi là một độ đo cực biên của $\mathbf{A}$.\\
+Hệ chuyển mạch tuyến tính $\mathbf{A}$ là ổn đinh (mũ) nếu tồn tại một chuẩn $|\cdot|$ sao cho độ đo ma trận của nó âm. Từ đó suy ra, khi độ đo nhỏ nhất là âm thì hệ chuyển mạch là ổn định mũ. Tiếp theo ta sẽ chứng minh điều ngược lại cũng đúng.
+
+\begin{theorem} \label{the2-26}
+Với hệ chuyển mạch tuyến tính liên tục $\mathbf{A}$ bất kỳ, ta có:
+\begin{equation} \label{eq2-43}
+\nu(\mathbf{A})=\varrho(\mathbf{A}).
+\end{equation}
+Hệ có (ít nhất) một độ đo cực biên khi và chỉ khi hệ chuẩn hóa của nó ổn định biên.
+\end{theorem}
+\textit{Chứng minh.} Trước hết, ta kiểm tra:
+$$\mu_{|\cdot|}(\mathbf{A}+\lambda I_n)=\lambda +\mu_{|\cdot|}(\mathbf{A})\quad\forall |\cdot|\in\Upsilon , \lambda\in\mathbb{R},$$
+trong đó $\mathbf{A}+\lambda I_n$ là ký hiệu cho hệ chuyển mạch tuyến tính $(A_1+\lambda I_n,\cdots,A_m+\lambda I_n)$. Từ đó ta có:
+$$\nu(\mathbf{A}+\lambda I_n)=\lambda +\nu(\mathbf{A})\quad\forall\lambda\in\mathbb{R}.$$
+Kết hợp với:
+$$\varrho(\mathbf{A}+\lambda I_n)=\lambda +\varrho (\mathbf{A})\quad\forall\lambda\in\mathbb{R},$$
+suy ra (\ref{eq2-43}) đúng trong trường hợp tổng quát nếu nó đung trong trường hợp $\varrho(\mathbf{A})=0$, tức hệ chuyển mạch hoặc là ổn định biên, hoặc là không ổn định biên.\\
+
+Giả sử hệ ổn định hoặc hệ ổn định biên. Cố định một chuẩn vectơ $|\cdot|$ trong $\mathbb{R}^n$ và định nghĩa hàm $V:\mathbb{R}^n\mapsto\mathbb{R}_+$ xác định bởi:
+\begin{equation} \label{eq2-44}
+V(x)=\sup_{t\in\mathbb{R}_+,\sigma\in\mathcal{S}}|\phi(t;0,x,\sigma)|.
+\end{equation}
+Hàm này hoàn toàn xác định dương, lồi, $0-$đối xứng và thuần nhất dương bậc một. Hơn nữa, tồn tại một số thực dương $L$ sao cho:
+$$|x|\leq V(x)\leq L|x|\quad\forall x\in\mathbb{R}^n.$$
+Kết hợp với tính chất tuyến tính theo tia (\ref{eq2-18}) suy ra $V$ là liên tục Lipchitz toàn cục. Khi đó $V$ có dạng là một chuẩn vectơ trong $\mathbb{R}^n$.\\
+
+Với mọi $x\in\mathbb{R}^n, s\in\mathbb{R}_+,i\in M$, ta có
+\begin{equation}
+\begin{split}
+V(\phi(s;0,x,\widehat{i})) & =\sup_{t\in\mathbb{R}_+,\sigma\in\mathcal{S}}|\phi(t;0,\phi(s;0,x,\widehat{i}),\sigma)|\\
+& \leq \sup_{t\in\mathbb{R}_+,\sigma\in\mathcal{S}}|\phi(t+s;0,x,\sigma)|\\
+& \leq \sup_{t+s\in\mathbb{R}_+,\sigma\in\mathcal{S}}|\phi(t+s;0,x,\sigma)|\\
+& = V(x)
+\end{split}
+\end{equation}
+trong đó $\widehat{i}$ là ký hiệu cho tín hiệu chuyển mạch $\widehat{i}(t)\equiv i$. Do $V$ là liên tục Lipchitz nên ta có:
+\begin{equation}
+\begin{split}
+\mu_V(A_i) & = \limsup_{\tau\rightarrow 0^+,x\neq 0}\frac{V(x+\tau A_ix)-V(x)}{\tau V(x)}\\
+& = \limsup_{\tau\rightarrow 0^+,x\neq 0}\frac{V(\phi(\tau;0,x,\widehat{i}))-V(x)}{\tau V(x)}\\
+& \leq 0 \quad \forall i\in M.
+\end{split}
+\end{equation}
+Khi đó chuẩn $V$ cảm sinh một độ đo tập ma trận thỏa mãn:
+\begin{equation} \label{eq2-45}
+\mu_V(\mathbf{A})\leq 0.
+\end{equation}
+Từ đó suy ra $\nu(\mathbf{A})\leq 0$.\\
+
+Tiếp ta xét trường hợp hệ chuyển mạch không ổn định biên. Khi đó giá trị độ đo nhỏ nhất bằng không. 	Nếu giá trị độ đo nhỏ nhất âm thì từ hệ thức (\ref{eq2-41}) suy ra hệ ổn định mũ. Điều này dẫn đến mâu thuẫn. Do đó, độ đo tập ma trận trong (\ref{eq2-45}) là một độ đo cận biên.\\
+
+Cuối cùng, ta xét trường hợp hệ chuyển mạch không ổn định biên. Khi đó, giá trị độ đo nhỏ nhất không âm. Giả sử rằng độ đo là dương. Khi đó tồn tại một số thực dương $\epsilon$ với $\epsilon <\nu(\mathbf{A})$ sao cho
+$$\nu_{|\cdot|}(\mathbf{A}-\epsilon I_n)>0.$$
+hệ chuyển mạch $\mathbf{A}-\epsilon I_n$ hoặc không ổn định, hoặc không ổn định biên. Điều này mâu thuẫn với $\varrho(\mathbf{A}-\epsilon I_n)=-\epsilon <0$. Do đó $\nu(\mathbf{A})=0$. Mặt khác, khi $\nu(\mathbf{A})=0$ thì sự tồn tại của một độ đo cực biên kéo theo tính bị chặn của tập $R(\mathcal{A})$ và do đó hệ là ổn định hoặc ổn định biên. Nên hệ chuyển mạch không ổn định biên sẽ không có bất cứ một độ đo cực biên nào.\\
+
+Vậy tính ổn định biên kéo theo sự tồn tại của một độ đo cực biên giá trị không và tính không ổn định biên kéo theo giá trị độ đo nhỏ nhất bằng không nhưng không có bất cứ một độ đo cực biên nào. Vì phép chuẩn hóa không làm thay đổi sự tồn tại của độ đo cực biên nên từ đây suy ra mệnh đề thứ hai của định lý.\\
+
+\textit{Chú ý:} Với một ma trận thực, tốc độ phân kỳ lớn nhất của nó chính là phần thực lớn nhất của các giá trị riêng và nó chính là giá trị độ đo nhỏ nhất (xem thêm [\ref{ref5}]). Định lý (\ref{the2-26}) chính là mở rộng cho trường hợp hệ chuyển mạch tuyến tính.\\
+
+Từ định lý (\ref{the2-26}) ta có thể mô tả một cách đầy đủ tính ổn định theo độ đo tập ma trận.
+
+\begin{corollary} \label{co2-29}
+Với hệ chuyển mạch tuyến tính liên tục, ta có các phát biểu sau:\\
+(1) Hệ ổn định khi và chỉ khi giá trị độ đo nhỏ nhất của nó là âm.\\
+(2) Hệ ổn định biên khi và chỉ khi giá trị độ đo nhỏ nhất của nó bằng không và nó có một độ đo cực biên.\\
+(3) Hệ không ổn định biên khi và chỉ khi giá trị độ đo nhỏ nhất của nó bằng không và nó không có bất kỳ một độ đo cực biên nào.\\
+(4) Hệ không ổn đinh khi và chỉ khi giá trị độ đo nhỏ nhất của nó là dương.
+\end{corollary}
 
 \end{document}
