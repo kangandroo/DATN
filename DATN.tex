@@ -185,9 +185,16 @@ Ta có thể thấy, khi $t$ đủ lớn thì các ellip này co về gốc tọ
 \includegraphics[width=0.5\textwidth]{graph1.png}
 \hspace{\fill}
 \includegraphics[width=0.5\textwidth]{graph2.png}
-\caption{Hình ảnh nghiệm của hai hệ con.}\label{fig:xyz}
-\end{figure}\\
-Từ đó ta suy ra được nghiệm của hệ chuyển mạch.
+\caption{Nghiệm của hai hệ con.}\label{fig:1}
+\end{figure}
+
+Từ đó ta suy ra được nghiệm của hệ chuyển mạch:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph3.png}
+\caption{Nghiệm của hệ chuyển mạch.}\label{fig:2}
+\end{figure}
+\newpage
 
 \section{Tính ổn định và khả ổn định của hệ chuyển mạch}
 Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thống con đơn giản cố định. Như vậy ta cần xét đến tính ổn định của các hệ thống chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
@@ -261,28 +268,25 @@ Cho
 
 \chapter{Tính ổn định của hệ chuyển mạch dưới sự chuyển mạch tùy ý}
 \section{Một số khái niệm cơ bản}
-Trong chương này, ta sử dụng thuạt ngữ "ổn đinh đảm bảo" để mô tả tính ổn định của hệ chuyển mạch khi sự chuyển mạch xuất hiện một cách tùy ý.\\
+Trong chương này, ta sử dụng thuật ngữ "ổn đinh đảm bảo" để mô tả tính ổn định của hệ chuyển mạch khi sự chuyển mạch xuất hiện một cách tùy ý.\\
 
 Xét hệ động lực chuyển mạch sau:
 \begin{equation} \label{eq2-1}
 x^+(t)=f(x(t),\sigma (t)),
 \end{equation}
-trong đó $x(t)\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma (t)\in M = \{1,...,m\}$ là trạng thái rời rạc và $f : \mathbb{R}^n \times M \mapsto \mathbb{R}^n$ là trường vec-tơ với $f(\cdot ,i)$ là hàm liên tục Lipschitz với mọi $i\in M$.\\
-
+trong đó $x(t)\in\mathbb{R}^n$ là trạng thái liên tục, $\sigma (t)\in M = \{1,...,m\}$ là trạng thái rời rạc và $f : \mathbb{R}^n \times M \mapsto \mathbb{R}^n$ là trường vec-tơ với $f(\cdot ,i)$ là hàm liên tục Lipschitz với mọi $i\in M$.\\\\
 Ta định nghĩa hàm $f_i : \mathbb{R}^n \mapsto \mathbb{R}^n$:
 $$f_i(x)=f(x,i), \qquad i\in M.$$
-
-Hệ \ref{eq2-1} được viết lại
-
+Khi đó, hệ \ref{eq2-1} được viết lại dạng
 \begin{equation} \label{eq2-2}
 x^+(t)=f_{\sigma (t)}(x(t)).
 \end{equation}
 
-Trong chương này, ta sẽ đi phân tích tính ổn định của hệ \ref{eq2-2}. Ta có một vài giả thiết sau:\\
+Trong chương này, ta sẽ đi phân tích tính ổn định của hệ \ref{eq2-2} với vài giả thiết sau:\\
 (1) $f_i(0)=0$ với mọi $i\in M$, đó là gốc cân bằng.\\
-(2) Hệ là liên tục Lipschitz toàn cục, tồn tại hằng số dương $L$ sao cho
+(2) Hệ liên tục Lipschitz toàn cục, tức là tồn tại hằng số dương $L$ sao cho
 \begin{equation} \label{eq2-3}
-|f_i(x)-f_i(y)|\leq L|x-y|\qquad \forall x,y \in \mathbb{R}^n, i\in M,
+|f_i(x)-f_i(y)|\leq L|x-y|\qquad \forall x,y \in \mathbb{R}^n,\forall i\in M,
 \end{equation}
 Giả thiết (1), (2) vừa đưa ra đảm bảo tính đặt chỉnh của hệ thống chuyển mạch.\\
 Ta định nghĩa $\phi (t;t_0,x_0,\sigma)$ là trạng thái chuyển liên tục của hệ \ref{eq2-2} tại thời điểm $t$ với điều kiện ban đầu $x(t_0)=x_0$ và cơ chế chuyển $\sigma$. Ta sử dụng $\phi (t;x_0,\sigma)$ là nghiệm tại thời điểm $t_0 = 0$. Với mọi điều kiện ban đầu $x(t_0)=x_0$ và thời điểm $t>t_0$, với thời gian rời rạc ta có
