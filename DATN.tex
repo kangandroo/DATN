@@ -13,9 +13,9 @@
 \usepackage{graphicx}			%gói hình ảnh 
 \usepackage{hyperref}			%gói liên kết link
 \usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2cm] {geometry}
-
-\lhead{DATN}
-\rhead{Toán Tin K58}
+\linespread{1.5}
+\lhead{\textsl{Hệ động lực chuyển mạch - Nguyễn Lê Hoàng}}
+\rhead{\textsl{\today}}
 %//================================= Begin dinh nghia cac goi lenh
 \renewcommand{\contentsname}{Mục lục}
 \renewcommand{\chaptername}{Chương}
@@ -82,6 +82,24 @@ Ts. Hà Thị Ngọc Yến
 \newpage
 \setlength{\baselineskip}{18truept}	%gian dong cho van ban
 %//==========================================Begin noi dung bai==
+
+\chapter*{Lời mở đầu}
+Các hệ thống điều khiển chuyển mạch đã thu hút được rất nhiều sự quan tâm từ cộng đồng, các nhà toán học không chỉ vì sự phức tạp vốn có của chúng, mà còn là do tầm quan trọng trong các vấn đề thực tiên với nhiều ứng dụng trong tự nhiên, kỹ thuật và khoa học xã hội. Thực tế, các hệ thống trong tự nhiên, xã hội hay kỹ thuật thường không thể mô tả đơn giản chỉ bằng một mô hình duy nhất, nhiều hệ thống còn biểu thị sự chuyển đổi qua lại giữa nhiều mô hình tùy thuộc vào điều kiện, môi trường khác nhau. Các hệ thống sinh học tự nhiên còn chuyển đổi sao cho thích nghi được với sự thay đổi của môi trường bên ngoài. Nên các hệ chuyển mạch là thực sự cần thiết. Sự chuyển mạch cũng đã được thể hiện thông qua một vài hệ thống trong xã hội. Để cải thiện hiệu suất, sự chuyển mạch đã được sử dụng/khai thác rộng rãi trong nhiều hệ thống kỹ thuật như điện tử, hệ thống điện, kiểm soát giao thông và trong một số ngành khác.\\
+
+Việc nghiên cứu lý thuyết và khảo sát về các hệ thống điều khiển chuyển mạch thực sự là khó khăn do sự đa dạng, phong phú và phức tạp của hệ thống. Việc chuyển mạch khiến cho các hệ thống phức tạp hơn nhiều so với các hệ thống chuẩn ban đầu. Các hệ chuyển mạch cho ta thêm các trạng thái, tính chất mới phức tạp hơn mà các hệ thống gốc ban đầu không có. Từ thiết kế các hệ thống điều khiển, sự chuyển mạch cho ta sự thoải mái, tùy ý hơn trong việc thiết kế các hệ thống điều khiển. Các quy luật chuyển mạch có thể được sử dụng để điều khiển các thống chuyển mạch sao cho đạt được hiệu năng tốt hơn của hệ thống. Điều này giúp ta có thể điều khiển hệ thống đạt được mục đích kiểm soát nhất định.\\
+
+Một mặt, sự chuyển mạch có thể gây ra tính bất ngờ, không đoán trước được thay đổi trong các hệ thống động lực, cấu trúc hệ thống, chẳng hạn như thay đổi đột ngột cấu trúc hệ thống do sự hỏng hóc của một vài bộ phận hay hệ thống con, hoặc là do sự kích hoạt ngẫu nhiên của bất kỳ hệ thống con nào đó. Mặt khác, việc chuyển mạch là để kiểm soát hiệu quả các hệ thống phi tuyến phức tạp, còn được gọi là các hệ thống lai. Trong cả hai trường hợp trên, một yếu tố cần thiết là sự tương tác giữa các hệ thống động lực chuyển mạch liên tục và các hệ thống động lực chuyển mạch rời rạc. Các hệ thống động lực chuyển mạch thường bao gồm các hệ thống con và các tín hiệu chuyển mạch phối hợp chuyển đổi giữa các hệ thống con. Các hệ chuyển mạch với các điều kiện ràng buộc, quy luật chuyển mạch khác nhau sẽ tạo ra các hệ thống vô cùng phong phú, đa dạng và phức tạp.\\
+
+Đồ án này sẽ giới thiệu về hệ thống động lực chuyển mạch và trình bày những điều kiển để một hệ chuyển mạch là ổn định dưới sự chuyển mạch tùy ý. Nội dung đồ án gồm hai chương:
+
+Chương 1: Giới thiệu một số khái niệm cơ bản, một vài ví dụ về hệ thống động lực chuyển mạch và tính ổn định của chúng.
+
+Chương 2: Trình bày về hệ chuyển mạch phi tuyến, hệ chuyển mạch tuyến tính và tính ổn định của hệ chuyển mạch dưới sự chuyển mạch tùy ý thông qua hàm Lyapunov. Trong chương này còn đề cập đến các tiêu chuẩn ổn định đại số của các hệ chuyển mạch tuyến tính rời rạc. Sự ổn định này được đặc trưng bởi bán kính phổ của ma trận.\\
+
+Trong quá trình làm đồ án, em đã nhận được sự giúp đỡ, chỉ bảo tận tình của cô giáo TS Hà Thị Ngọc Yến. Em xin chân thành cảm ơn và bày tỏ lòng kính trọng tới cô, người đã dành nhiều thời gian chỉ bảo, hướng dẫn và giúp đỡ em hoàn thành đồ án này.\\
+Tuy nhiên, trong quá trình làm đồ án, mặc dù đã hết sức cố gắng nhưng do trình độ còn hạn chế và thời gian có hạn nên việc nghiên cứu và trình bày không thể tránh khỏi nhầm lẫ và thiếu sót. Em mong nhận được sự giúp đỡ đóng góp của các thầy cô và bạn bè để đồ án được hoàn thiện hơn.\\\\
+\textit{Sinh viên}\\
+Nguyễn Lê Hoàng
 
 \chapter{Giới thiệu về hệ chuyển mạch}
 \section{Khái niệm về hệ động lực chuyển mạch}
@@ -165,7 +183,7 @@ A_1 = \begin{bmatrix} -0.01 & -0.5 \\ 2 & -0.01 \end{bmatrix} ,\quad
 A_2 = \begin{bmatrix} -0.01 & -2 \\ 0.5 & -0.01 \end{bmatrix} .
 $$
 Nghiệm của hệ con thứ nhất và thứ hai lần lượt là:
-$$
+\begin{equation} \label{vd1}
 \begin{cases}
 x_1 = e^{-0.01t}(A\cos t+B\sin t)\\
 x_2 = 2e^{-0.01t}(A\cos t-B\sin t)
@@ -175,27 +193,36 @@ x_2 = 2e^{-0.01t}(A\cos t-B\sin t)
 x_1 = e^{-0.01t}(A\cos t+B\sin t)\\
 x_2 = \frac{1}{2} e^{-0.01t}(A\cos t-B\sin t)
 \end{cases}
-$$
+\end{equation}
+
 Khi đó quỹ đạo của chúng lần lượt là:
 $$
 x^2_1 + \frac{x_2^2}{4} = e^{-0.02t}(A^2+B^2) \quad\text{và}\quad x^2_1 + 4x_2^2 = e^{-0.02t}(A^2+B^2)
 $$
-Ta có thể thấy, khi $t$ đủ lớn thì các ellip này co về gốc tọa độ. Hình ảnh nghiệm của mỗi hệ con là các ellip đồng dạng thu hẹp dần:
+Ta có thể thấy, khi $t$ đủ lớn thì các ellip này co về gốc tọa độ. Nghiệm của hai hệ con cho ta thấy được hai hệ này ổn định. Hình \ref{fig:1} là nghiệm của mỗi hệ con - các ellip đồng dạng thu hẹp dần:
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{graph1.png}
 \hspace{\fill}
 \includegraphics[width=0.5\textwidth]{graph2.png}
-\caption{Nghiệm của hai hệ con.}\label{fig:1}
+\caption{Nghiệm hai hệ con của hệ chuyển mạch $\ref{vd1}$.}\label{fig:1}
 \end{figure}
-
-Từ đó ta suy ra được nghiệm của hệ chuyển mạch:
+\newpage
+Từ đó ta suy ra được nghiệm của hệ chuyển mạch, như hình \ref{fig:2} :
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{graph3.png}
-\caption{Nghiệm của hệ chuyển mạch.}\label{fig:2}
+\caption{Nghiệm của hệ chuyển mạch $\ref{vd1}$.}\label{fig:2}
+\end{figure}\\
+Ta có thể thấy rằng, hệ (\ref{vd1}) ổn định. Với quy luật chuyển mạch đã cho như giả thiết thì cứ sau khoảng thời gian $\Delta t=\pi$ thì hệ lại chuyển mạch. Dãy thời điểm chuyển mạch: $\{k\pi | k\in\mathbb{N}\}$. Ta lại xét hệ (\ref{vd1}) nhưng với quy luật chuyển khác như sau: cứ sau khoảng thời gian $\Delta t=2$ thì hệ tự chuyển mạch. Dãy thời điểm chuyển mạch mới: $\{2k|k\in\mathbb{N}\}$. Nghiệm của hệ mới được biểu diễn như hình \ref{fig:3}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph10.png}
+\caption{Nghiệm của hệ chuyển mạch $\ref{vd1}$ với quy luật chuyển mạch mới.}\label{fig:3}
 \end{figure}
 \newpage
+Hệ mới ta đang xét lại không ổn định.\\
 
+Vậy hợp các hệ ổn định chưa chắc đã ổn định. Nó còn phụ thuộc vào nhiều yếu tố khác nữa. Ta sẽ tìm hiểu thêm ở các phần sau của đồ án.
 \section{Tính ổn định và khả ổn định của hệ chuyển mạch}
 Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thống con đơn giản cố định. Như vậy ta cần xét đến tính ổn định của các hệ thống chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
 Cho $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ với $\Lambda^x$ là tập con khác rỗng của $\mathcal{S}$ - tập các tín hiệu chuyển mạch. Tập này được gọi là tập các tín hiệu chuyển chấp nhận được nếu với mỗi trạng thái ban đầu đều được gán với một tập tín hiệu chuyển mạch. Tập này cảm sinh từ một tập chấp nhận được những quỹ đạo trạng thái liên tục $\{\Gamma_x:x\in\mathbb{R}^n\}$, trong đó $\Gamma_x$ là tập các quỹ đạo trạng thái với trạng thái bắt đầu $x$ và tín hiệu chuyển mạch trong $\Lambda^x$ :
@@ -222,13 +249,13 @@ $$|\phi(t;0,x_0,\theta^{x_0})|\leq \beta e^{-\alpha t}|x_0|\qquad\forall t \in [
 
 Khi các hệ con là cố định, tính chất ổn định được xác định bởi tập chấp nhận được các tín hiệu chuyển mạch. Nếu $\Upsilon_1\subseteq\Upsilon_2$ thì tính ổn định $\Upsilon_2$ kéo theo tính ổn định $\Upsilon_1$ và tính khả ổn định $\Upsilon_1$ kéo theo tính khả ổn định $\Upsilon_2$.
 
-\section{Tính ổn định đảm bảo dưới sự chuyển mạch tùy ý}
+\subsection{Tính ổn định đảm bảo dưới sự chuyển mạch tùy ý}
 Khi sự chuyển mạch giữa các hệ con xuất hiện theo cách bất kỳ thì khi đó tính ổn định được gọi là tính ổn định đảm bảo. Tập chấp nhận được các tín hiểu chuyển mạch được cho bởi:
 
 $$\Upsilon_{as}=\{\Lambda^x:x\in\mathbb{R}^n\},\quad \Lambda^x=\mathcal{S},\forall x\in\mathbb{R}^n$$
 là tập lớn nhất trong tất cả các tập chấp nhận được các tín hiệu chuyển mạch. Do đó, tính ổn định đảm bảo là khái niệm chặt nhất trong các khái niệm ổn định. Đặc biệt, khi hệ chuyển mạch ổn định đảm bảo sẽ kéo theo tính ổn định của các hệ con. Điều ngược lại không đúng và được chứng minh thông qua ví dụ sau.\\
 \begin{example}
-Cho hai hệ con tuyến tính phẳng:
+Cho hai hệ con tuyến tính phẳng \cite{DATN5}:
 $$\dot{x}=A_1x=
 \begin{bmatrix}
 0 & 1\\
@@ -240,10 +267,44 @@ $$\dot{x}=A_2x=
 0 & 1\\
 -1-3a & -1-a
 \end{bmatrix}x,$$
-trong đó $a$ là một tham số thực không âm. Do các trị riêng của cả hai hệ con đều có phần thực âm nên chúng đều ổn định mũ. Khi $a=0$ thì hai hệ con trùng nhau nên hệ chuyển mạch là ổn định mũ đảm bảo. Khi $a\approx 36.512$ thì hệ chuyển mạch là ổn định biên đảm bảo. Khi $a>36.512$ hệ chuyển mạch không ổn định đảm bảo.
+trong đó $a$ là một tham số thực không âm. Cả hai hệ con đều ổn định mũ. Ta có quy luật chuyển mạch giữa hai hệ con như hình $\ref{fig:4}$.\\
+\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph12.png}
+\caption{Quy luật chuyển mạch.}\label{fig:4}
+\end{figure}
+Khi $a=0$ thì hai hệ con trùng nhau nên hệ chuyển mạch là ổn định mũ đảm bảo (Hình \ref{fig:5} với $x_0=[-1/3,1]^T$).
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph7.png}
+\caption{Nghiệm của hệ chuyển mạch khi $a=0$ với $x_0=[-1/3,1]^T$.}\label{fig:5}
+\end{figure}
+
+Khi $a=10$ thì hệ chuyển mạch cũng ổn định (Hình \ref{fig:11}).
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph5.png}
+\caption{Nghiệm của hệ chuyển mạch khi $a=10$ với $x_0=[-1/3,1]^T$.}\label{fig:11}
+\end{figure}
+\newpage
+Khi $a\approx 36.512$ thì hệ chuyển mạch là ổn định biên đảm bảo (Hình \ref{fig:6}).
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph4.png}
+\caption{Nghiệm của hệ chuyển mạch khi $a\approx 36.512$ với $x_0=[-1/3,1]^T$.}\label{fig:6}
+\end{figure}\\
+
+Khi $a>36.512$ hệ chuyển mạch không ổn định đảm bảo (Hình \ref{fig:7}).
+\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph6.png}
+\caption{Nghiệm của hệ chuyển mạch khi $a=100$ với $x_0=[-1/3,1]^T$.}\label{fig:7}
+\end{figure}
 \end{example}
 
-\section{Tính ổn định thời gian dừng}
+\subsection{Tính ổn định thời gian dừng}
 Một tín hiệu chuyển mạch được gọi là thời gian dừng $\tau$ nếu $t_{i+1}-t_i\geq\tau$ với $t_i$ và $t_{i+1}$ là hai thời điểm bước nhảy liên tiếp bất kỳ. Cho $\mathcal{S}_\tau$ là tập tín hiệu chuyển mạch hoàn toàn xác định với thời gian dừng $\tau$. Rõ ràng rằng $\mathcal{S}=\mathcal{S}_0\supseteq\mathcal{S}_{\tau_1}\supseteq\mathcal{S}_{\tau_2}$ với $0\leq\tau_1\leq\tau_2$, và quan hệ tập con là chặt nếu $0<\tau_1<\tau_2$.\\
 
 Tập tín hiệu chuyển mạch $\mathcal{S}$ cho phép sự điều khiển chuyển mạch nhanh một cách tùy ý, thậm chí không có một thời gian dừng đều giữa các thời điểm chuyển mạch.\\
@@ -263,7 +324,38 @@ $$|\phi_i(t;x_0)|\leq\frac{1}{2}|x_0|\quad\forall t\in\mathcal{T}_T,x_0\in\mathb
 trong đó $\phi_i(\cdot;x_0)$ ký hiệu cho quỹ đạo trạng thái của hệ con thứ $i$ với $x(0) = x_0$. Do đó hệ chuyển mạch là ổn định mũ thời gian dừng $\tau$. Tuy nhiên, khẳng định này không đúng cho trường hợp ổn định tiệm cận và ổn định biên.
 
 \begin{example}
-Cho 
+Cho hệ chuyển mạch tuyến tính với hai hệ con ổn định biên \cite{DATN5}:
+$$\dot{x}=A_1x=
+\begin{bmatrix}
+0 & 1\\
+-2 & -0
+\end{bmatrix}x$$
+và
+$$\dot{x}=A_2x=
+\begin{bmatrix}
+0 & 1\\
+-\frac{1}{2} & 0
+\end{bmatrix}x,$$
+Ngiệm của hai hệ con (Hình \ref{fig:8}).\\
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{graph8.png}
+\hspace{\fill}
+\includegraphics[width=0.5\textwidth]{graph9.png}
+\caption{Nghiệm hai hệ con của hệ chuyển mạch.}\label{fig:8}
+\end{figure}\\
+Ta xét quy luật chuyển mạch dưới đây (\ref{fig:9}).\\
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph13.png}
+\caption{Quy luật chuyển mạch.}\label{fig:9}
+\end{figure}
+Hệ chuyển mạch sẽ không ổn định. Khi quỹ đạo của mỗi hệ con là tuần hoàn, bằng việc ghép một hoặc nhiều chu kỳ vào mỗi khoảng thời gian chuyển mạch thì trạng thái luôn phân kỳ.\\
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{graph11.png}
+\caption{Nghiệm của hệ chuyển mạch.}\label{fig:10}
+\end{figure}\\
+Từ đó suy ra, với $\tau > 0$ bất kỳ, tập chấp nhận được $\Upsilon_\tau$ chứa những tín hiệu chuyển mạch làm mất tính ổn định. Vậy với tính ổn định thời gian dừng, bài toán đặt ra là phải đi tìm $\tau$ nhỏ nhất sao cho hệ chuyển mạch ổn định.
 \end{example}
 
 \chapter{Tính ổn định của hệ chuyển mạch dưới sự chuyển mạch tùy ý}
@@ -476,7 +568,7 @@ và
 $$L_fV(x)\leq -\alpha_3(|x|_\chi) \quad \forall x\in\mathbb{R}^n,d\in D.$$
 \end{lemma}
 
-Chứng minh bổ đề này khá phức tạp về mặt kỹ thuật và được trình bày chi tiết trong [\ref{ref1}, \ref{ref2}].\\
+Chứng minh bổ đề này khá phức tạp về mặt kỹ thuật và được trình bày chi tiết trong \cite{DATN1, DATN2}.\\
 Áp dụng bổ đề trên cho trường hợp $D=M$ và $\chi=\{0\}$ ta suy ra khẳng định thứ hai của mệnh đề (\ref{pro2-11}).\\
 
 Từ mệnh đề (\ref{pro2-10}) và (\ref{pro2-11}) ta có định lý sau:
@@ -847,7 +939,7 @@ Phần dưới đây, ta xét trường hợp hệ chuyển mạch với thang t
 \begin{equation} \label{eq2-39}
 \mu_{|\cdot|}(A)=\limsup_{\tau \rightarrow 0^+,|x|=1}\frac{|x+\tau Ax|-|x|}{\tau}.
 \end{equation}
-Độ đo ma trận có các tính chất sau (xem thêm [\ref{ref3}]) (để ngắn gọn ta lược bỏ chỉ số ở dưới $|\cdot|$)\\
+Độ đo ma trận có các tính chất sau (xem thêm \cite{DATN3}) (để ngắn gọn ta lược bỏ chỉ số ở dưới $|\cdot|$)\\
 (1) \textit{Tính hoàn toàn xác định.} Độ đo ma trận hoàn toàn xác định với chuẩn vectơ bất kỳ.\\
 (2) \textit{Tính thuần nhất dương.} $\mu (\alpha A)=\alpha\mu (A)\forall\alpha\geq 0$ và $A\in\mathbb{R}^{n\times n}$.\\
 (3) \textit{Tính lồi.} $\mu (\alpha A+(1-\alpha)B)\leq \alpha\mu(A)+(1-\alpha)\mu(B)\quad\forall\alpha\in [0,1]$ và $A,B\in\mathbb{R}^{n\times n}$.\\
@@ -922,7 +1014,7 @@ hệ chuyển mạch $\mathbf{A}-\epsilon I_n$ hoặc không ổn định, hoặ
 
 Vậy tính ổn định biên kéo theo sự tồn tại của một độ đo cực biên giá trị không và tính không ổn định biên kéo theo giá trị độ đo nhỏ nhất bằng không nhưng không có bất cứ một độ đo cực biên nào. Vì phép chuẩn hóa không làm thay đổi sự tồn tại của độ đo cực biên nên từ đây suy ra mệnh đề thứ hai của định lý.\\
 
-\textit{Chú ý:} Với một ma trận thực, tốc độ phân kỳ lớn nhất của nó chính là phần thực lớn nhất của các giá trị riêng và nó chính là giá trị độ đo nhỏ nhất (xem thêm [\ref{ref5}]). Định lý (\ref{the2-26}) chính là mở rộng cho trường hợp hệ chuyển mạch tuyến tính.\\
+\textit{Chú ý:} Với một ma trận thực, tốc độ phân kỳ lớn nhất của nó chính là phần thực lớn nhất của các giá trị riêng và nó chính là giá trị độ đo nhỏ nhất (xem thêm \cite{DATN4}). Định lý (\ref{the2-26}) chính là mở rộng cho trường hợp hệ chuyển mạch tuyến tính.\\
 
 Từ định lý (\ref{the2-26}) ta có thể mô tả một cách đầy đủ tính ổn định theo độ đo tập ma trận.
 
@@ -934,4 +1026,15 @@ Với hệ chuyển mạch tuyến tính liên tục, ta có các phát biểu s
 (4) Hệ không ổn đinh khi và chỉ khi giá trị độ đo nhỏ nhất của nó là dương.
 \end{corollary}
 
+\chapter*{Kết luận}
+Đồ án này đã trình bày về một số khái niệm cơ bản của hệ chuyển mạch: khái niệm hệ động lực chuyển mạch, dãy thời điểm chuyển mạch, dãy chỉ số chuyển mạch, tín hiệu chuyển mạch, dãy chỉ số chuyển mạch, nghiệm của hệ chuyển mạch, tính ổn định và khả ổn định của hệ chuyển mạch ...\\
+Đồng thời, đồ án cũng trình bày về tính ổn định của hệ chuyển mạch phi tuyến và hệ chuyển mạch tuyến tính dưới sự chuyển mạch tùy ý. Trong đó, có điều kiện cần và đủ để hệ chuyển mạch phi tuyến ổn định thông qua việc sử dụng hàm Lyapunov. Ta có mối liên giữa tập nghiệm và tính ổn định của hệ chuyển mạch tuyến tính, hệ bất định tuyến tính đa hộp và hệ bao hàm thức vi phân/ sai phân.\\
+Cuối cùng là tiêu chuẩn ổn định đại số của các hệ chuyển mạch tuyến tính rời rạc đặc trung bởi bán kính phổ của ma trận.\\
+
+Mong muốn của đồ án này là sẽ có nhiều nghiên cứu hơn trong các hệ thống điều khiển chuyển mạch. Việc này có ý nghĩa rất lớn đối với nhiều bài toán trong thực tế cần giải quyết như kiểm soát giao thông, quản lý các hệ thống điện, các bảng mạch điện tử, ... Hơn nữa, các kết quả nghiên cứu đó còn được áp dụng trong các bài toán tối ưu góp phần làm tăng hiệu năng các hệ thống kỹ thuật.
+
+\bibliographystyle{plain}
+
+\bibliography{florence-2016-autobib}
+\vfill
 \end{document}
