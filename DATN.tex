@@ -14,7 +14,7 @@
 \usepackage{hyperref}			%gói liên kết link
 \usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2cm] {geometry}
 \linespread{1.5}
-\lhead{\textsl{Hệ động lực chuyển mạch - Nguyễn Lê Hoàng}}
+\lhead{\textsl{Tính ổn định của hệ chuyển mạch - Nguyễn Lê Hoàng}}
 \rhead{\textsl{\today}}
 %//================================= Begin dinh nghia cac goi lenh
 \renewcommand{\contentsname}{Mục lục}
@@ -84,19 +84,19 @@ Ts. Hà Thị Ngọc Yến
 %//==========================================Begin noi dung bai==
 
 \chapter*{Lời mở đầu}
-Các hệ thống điều khiển chuyển mạch đã thu hút được rất nhiều sự quan tâm từ cộng đồng, các nhà toán học không chỉ vì sự phức tạp vốn có của chúng, mà còn là do tầm quan trọng trong các vấn đề thực tiên với nhiều ứng dụng trong tự nhiên, kỹ thuật và khoa học xã hội. Thực tế, các hệ thống trong tự nhiên, xã hội hay kỹ thuật thường không thể mô tả đơn giản chỉ bằng một mô hình duy nhất, nhiều hệ thống còn biểu thị sự chuyển đổi qua lại giữa nhiều mô hình tùy thuộc vào điều kiện, môi trường khác nhau. Các hệ thống sinh học tự nhiên còn chuyển đổi sao cho thích nghi được với sự thay đổi của môi trường bên ngoài. Nên các hệ chuyển mạch là thực sự cần thiết. Sự chuyển mạch cũng đã được thể hiện thông qua một vài hệ thống trong xã hội. Để cải thiện hiệu suất, sự chuyển mạch đã được sử dụng/khai thác rộng rãi trong nhiều hệ thống kỹ thuật như điện tử, hệ thống điện, kiểm soát giao thông và trong một số ngành khác.\\
+Trong những năm gần đây, các hệ thống điều khiển chuyển mạch thu hút được rất nhiều nhà toán học quan tâm nghiên cứu bởi sự phức tạp vốn có của chúng. Nó có một tầm quan trọng trong các vấn đề thực tiên với nhiều ứng dụng trong tự nhiên, kỹ thuật và khoa học xã hội. Thực tế, các hệ thống trong tự nhiên, xã hội hay kỹ thuật thường không thể mô tả đơn giản chỉ bằng một mô hình duy nhất, nhiều hệ thống còn biểu thị sự chuyển đổi qua lại giữa nhiều mô hình tùy thuộc vào điều kiện, môi trường khác nhau. Các hệ thống sinh học tự nhiên còn chuyển đổi sao cho thích nghi được với sự thay đổi của môi trường bên ngoài. Nên việc nghiên cứu các hệ chuyển mạch là thực sự cần thiết. Sự chuyển mạch cũng đã được thể hiện thông qua một vài hệ thống trong xã hội. Để cải thiện hiệu năng của hệ thống, hệ chuyển mạch đã được sử dụng/khai thác rộng rãi trong nhiều hệ thống kỹ thuật như điện tử, hệ thống điện, kiểm soát giao thông và trong một số ngành khác.\\
 
-Việc nghiên cứu lý thuyết và khảo sát về các hệ thống điều khiển chuyển mạch thực sự là khó khăn do sự đa dạng, phong phú và phức tạp của hệ thống. Việc chuyển mạch khiến cho các hệ thống phức tạp hơn nhiều so với các hệ thống chuẩn ban đầu. Các hệ chuyển mạch cho ta thêm các trạng thái, tính chất mới phức tạp hơn mà các hệ thống gốc ban đầu không có. Từ thiết kế các hệ thống điều khiển, sự chuyển mạch cho ta sự thoải mái, tùy ý hơn trong việc thiết kế các hệ thống điều khiển. Các quy luật chuyển mạch có thể được sử dụng để điều khiển các thống chuyển mạch sao cho đạt được hiệu năng tốt hơn của hệ thống. Điều này giúp ta có thể điều khiển hệ thống đạt được mục đích kiểm soát nhất định.\\
+Việc nghiên cứu lý thuyết và khảo sát về các hệ thống điều khiển chuyển mạch thực sự là khó khăn do sự đa dạng, phong phú và phức tạp của hệ thống. Việc chuyển mạch khiến cho các hệ thống phức tạp hơn nhiều so với các hệ thống đơn nhất. Các hệ chuyển mạch cho ta thêm các trạng thái, tính chất mới phức tạp hơn mà các hệ thống đơn nhất không có. Từ thiết kế các hệ thống điều khiển, sự chuyển mạch cho ta sự linh hoạt, tùy ý hơn trong việc thiết kế các hệ thống điều khiển theo các mục tiêu khác nhau. Các quy luật chuyển mạch có thể được sử dụng để điều khiển các thống chuyển mạch sao cho đạt được hiệu năng tốt hơn của hệ thống. Điều này giúp ta có thể điều khiển hệ thống đạt được mục đích kiểm soát nhất định.\\
 
-Một mặt, sự chuyển mạch có thể gây ra tính bất ngờ, không đoán trước được thay đổi trong các hệ thống động lực, cấu trúc hệ thống, chẳng hạn như thay đổi đột ngột cấu trúc hệ thống do sự hỏng hóc của một vài bộ phận hay hệ thống con, hoặc là do sự kích hoạt ngẫu nhiên của bất kỳ hệ thống con nào đó. Mặt khác, việc chuyển mạch là để kiểm soát hiệu quả các hệ thống phi tuyến phức tạp, còn được gọi là các hệ thống lai. Trong cả hai trường hợp trên, một yếu tố cần thiết là sự tương tác giữa các hệ thống động lực chuyển mạch liên tục và các hệ thống động lực chuyển mạch rời rạc. Các hệ thống động lực chuyển mạch thường bao gồm các hệ thống con và các tín hiệu chuyển mạch phối hợp chuyển đổi giữa các hệ thống con. Các hệ chuyển mạch với các điều kiện ràng buộc, quy luật chuyển mạch khác nhau sẽ tạo ra các hệ thống vô cùng phong phú, đa dạng và phức tạp.\\
+Một mặt, hệ chuyển mạch có thể gây ra tính bất ngờ, không đoán trước được sự thay đổi trong các hệ thống động lực, cấu trúc hệ thống, chẳng hạn như thay đổi đột ngột cấu trúc hệ thống do sự hỏng hóc của một vài bộ phận hay hệ thống con, hoặc là do sự kích hoạt ngẫu nhiên của bất kỳ hệ thống con nào đó. Mặt khác, việc chuyển mạch là để kiểm soát hiệu quả các hệ thống phi tuyến phức tạp, còn được gọi là các hệ thống lai. Trong cả hai trường hợp trên, một yếu tố cần thiết là sự tương tác giữa các hệ thống động lực chuyển mạch liên tục và các hệ thống động lực chuyển mạch rời rạc. Các hệ thống động lực chuyển mạch thường bao gồm các hệ thống con và các tín hiệu chuyển mạch phối hợp chuyển đổi giữa các hệ thống con. Các hệ chuyển mạch với các điều kiện ràng buộc, quy luật chuyển mạch khác nhau sẽ tạo ra các hệ thống vô cùng phong phú, đa dạng và phức tạp.\\
 
-Đồ án này sẽ giới thiệu về hệ thống động lực chuyển mạch và trình bày những điều kiển để một hệ chuyển mạch là ổn định dưới sự chuyển mạch tùy ý. Nội dung đồ án gồm hai chương:
+Đồ án này sẽ giới thiệu về hệ thống động lực chuyển mạch và trình bày những điều kiện để một hệ chuyển mạch với quy luật chuyển mạch nhất định là ổn định. Nội dung đồ án gồm hai chương:
 
 Chương 1: Giới thiệu một số khái niệm cơ bản, một vài ví dụ về hệ thống động lực chuyển mạch và tính ổn định của chúng.
 
-Chương 2: Trình bày về hệ chuyển mạch phi tuyến, hệ chuyển mạch tuyến tính và tính ổn định của hệ chuyển mạch dưới sự chuyển mạch tùy ý thông qua hàm Lyapunov. Trong chương này còn đề cập đến các tiêu chuẩn ổn định đại số của các hệ chuyển mạch tuyến tính rời rạc. Sự ổn định này được đặc trưng bởi bán kính phổ của ma trận.\\
+Chương 2: Tổng quan về tính ổn định của hệ chuyển mạch và trình bày một số tiêu chuẩn ổn định của hệ chuyển mạch tuyến tính.\\
 
-Trong quá trình làm đồ án, em đã nhận được sự giúp đỡ, chỉ bảo tận tình của cô giáo TS Hà Thị Ngọc Yến. Em xin chân thành cảm ơn và bày tỏ lòng kính trọng tới cô, người đã dành nhiều thời gian chỉ bảo, hướng dẫn và giúp đỡ em hoàn thành đồ án này.\\
+Trong quá trình làm đồ án, em đã nhận được sự giúp đỡ, chỉ bảo tận tình của TS. Hà Thị Ngọc Yến. Em xin chân thành cảm ơn và bày tỏ lòng kính trọng tới cô, người đã dành nhiều thời gian chỉ bảo, hướng dẫn và giúp đỡ em hoàn thành đồ án này.\\
 Tuy nhiên, trong quá trình làm đồ án, mặc dù đã hết sức cố gắng nhưng do trình độ còn hạn chế và thời gian có hạn nên việc nghiên cứu và trình bày không thể tránh khỏi nhầm lẫ và thiếu sót. Em mong nhận được sự giúp đỡ đóng góp của các thầy cô và bạn bè để đồ án được hoàn thiện hơn.\\\\
 \textit{Sinh viên}\\
 Nguyễn Lê Hoàng
@@ -110,7 +110,7 @@ Hệ động lực chuyển mạch là một hệ động lực mà việc chuy�
 \end{itemize}
 \begin{example}
 Động cơ xe máy số:\\
-Đối với các loại xe máy thông thường như (dream, wave,...) ta có hộp số xoay vòng gồm số 0, số 1, số 2, số 3, số 4 tương ứng với các trạng thái vận hành của một hệ chuyển mạch. Khi bắt đầu nổ máy, xe ở số 0. Tại mỗi thời điểm khi đang di chuyển thì xe chỉ có thể chạy trong một trạng thái số $k$ nhất định. Việc chuyển số luôn tuân theo một quy tắc tăng một hoặc giảm một và quay vòng như sau số 0 $\leftrightarrow$ số 1 $\leftrightarrow$ số 2 $\leftrightarrow$ số 3 $\leftrightarrow$ số 4 $\leftrightarrow$ số 0.
+Đối với các loại xe máy thông thường như (dream, wave,...) ta có hộp số xoay vòng gồm số 0, số 1, số 2, số 3, số 4 tương ứng với các trạng thái vận hành của một hệ chuyển mạch. Khi bắt đầu nổ máy, xe ở số 0. Tại mỗi thời điểm khi đang di chuyển thì xe chỉ có thể chạy trong một trạng thái số $k$ nhất định. Việc chuyển số luôn tuân theo một quy tắc tăng một hoặc giảm một số và quay vòng như sau số 0 $\leftrightarrow$ số 1 $\leftrightarrow$ số 2 $\leftrightarrow$ số 3 $\leftrightarrow$ số 4 $\leftrightarrow$ số 0.
 \end{example}
 
 Một hệ động lực chuyển mạch được mô tả dưới dạng như sau:
@@ -207,7 +207,7 @@ Ta có thể thấy, khi $t$ đủ lớn thì các ellip này co về gốc tọ
 \caption{Nghiệm hai hệ con của hệ chuyển mạch $\ref{vd1}$.}\label{fig:1}
 \end{figure}
 \newpage
-Từ đó ta suy ra được nghiệm của hệ chuyển mạch, như hình \ref{fig:2} :
+Đồng thời hình \ref{fig:2} cho ta thấy nghiệm của hệ chuyển mạch :
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{graph3.png}
@@ -222,7 +222,7 @@ Ta có thể thấy rằng, hệ (\ref{vd1}) ổn định. Với quy luật chuy
 \newpage
 Hệ mới ta đang xét lại không ổn định.\\
 
-Vậy hợp các hệ ổn định chưa chắc đã ổn định. Nó còn phụ thuộc vào nhiều yếu tố khác nữa. Ta sẽ tìm hiểu thêm ở các phần sau của đồ án.
+Hệ chuyển mạch với các hệ con ổn định có thể ổn định hoặc không ổn định. Tính ổn định của hệ phụ thuộc vào quy luật chuyển mạch. Ta sẽ tìm hiểu thêm vấn đề này ở các phần sau của đồ án.
 \section{Tính ổn định và khả ổn định của hệ chuyển mạch}
 Trong các hệ thống động lực, các trạng thái chuyển đổi của hệ thống hoàn toàn được quyết định bởi các cơ chế chuyển đổi. Các hệ thống chuyển mạch có thể rất phức tạp và đa dạng thậm chí khi ta xét một hệ thống con đơn giản cố định. Như vậy ta cần xét đến tính ổn định của các hệ thống chuyển mạch theo các cơ chế chuyển đổi khác nhau. Để xét được tính ổn định, ta cần biết được các khái niêm về tính ổn định của hệ động lực chuyển mạch.
 Cho $\Upsilon = \{\Lambda^x:x\in\mathbb{R}^n\}$ với $\Lambda^x$ là tập con khác rỗng của $\mathcal{S}$ - tập các tín hiệu chuyển mạch. Tập này được gọi là tập các tín hiệu chuyển chấp nhận được nếu với mỗi trạng thái ban đầu đều được gán với một tập tín hiệu chuyển mạch. Tập này cảm sinh từ một tập chấp nhận được những quỹ đạo trạng thái liên tục $\{\Gamma_x:x\in\mathbb{R}^n\}$, trong đó $\Gamma_x$ là tập các quỹ đạo trạng thái với trạng thái bắt đầu $x$ và tín hiệu chuyển mạch trong $\Lambda^x$ :
@@ -507,7 +507,7 @@ Hệ chuyển mạch \ref{eq2-6} ổn định đều nếu nó nhận một hàm
 \end{proposition}
 
 \begin{example}
-Cho hệ chuyển mạch liên tục 2-dạng, phẳng:
+Cho hệ chuyển mạch liên tục 2-trạng thái, phẳng:
 $$\frac{d}{dt}x(t)=f_\sigma(x(t))$$
 với
 $$
@@ -800,7 +800,7 @@ trong đó $\mu\Gamma = \{\mu y:y\in\Gamma\}.$\\
 
 Từ định nghĩa suy ra, hàm $MF_\Gamma$ chính là hàm $V$, nghĩa là $MF_\Gamma(x)=V(x)\quad \forall x\in\mathbb{R}^n$. Hàm Minkovski là một chuẩn khi và chỉ khi tập mức $\Gamma$ là tập nhận O làm tâm đối xứng, tức là nếu $x\in\Gamma$ thì $-x\in\Gamma$. Tính phổ dụng của hàm tuyến tính từng khúc suy ra rằng hệ chuyển mạch tuyến tính bất kỳ có một $\mathcal{C}-$tập đa diện như tập mức hút của nó, tức là, $D^+V(x)\leq -\beta$ với $x$ bất kỳ nằm trên biên của tập mức, trong đó $\beta$ là một số thực dương nào đó. Từ đó suy ra, việc kiểm tra tính ổn định quy về việc nghiên cứu một $\mathcal{C}-$tập đa diện hút.\\
 
-Một trường hợp đặc biệt và khá thú vị, đó là hàm Lyapunov chung là một chuẩn. Trong trường hợp này ta có thể thấy rằng chuẩn là co dạng mũ dọc theo quỹ đạo trạng thái không tầm thường bất kỳ của hệ chuyển mạch.\\
+Một trường hợp đặc biệt và khá thú vị, đó là hàm Lyapunov chung là một chuẩn. Trong trường hợp này ta có thể thấy rằng chuẩn là có dạng mũ dọc theo quỹ đạo trạng thái không tầm thường bất kỳ của hệ chuyển mạch.\\
 
 Một hàm toàn phương từng khúc có dạng:
 $$V_{\text{max}} (x)=\text{max}\{x^TP_ix:i=1,\cdots,s\},$$
@@ -1027,11 +1027,11 @@ Với hệ chuyển mạch tuyến tính liên tục, ta có các phát biểu s
 \end{corollary}
 
 \chapter*{Kết luận}
-Đồ án này đã trình bày về một số khái niệm cơ bản của hệ chuyển mạch: khái niệm hệ động lực chuyển mạch, dãy thời điểm chuyển mạch, dãy chỉ số chuyển mạch, tín hiệu chuyển mạch, dãy chỉ số chuyển mạch, nghiệm của hệ chuyển mạch, tính ổn định và khả ổn định của hệ chuyển mạch ...\\
-Đồng thời, đồ án cũng trình bày về tính ổn định của hệ chuyển mạch phi tuyến và hệ chuyển mạch tuyến tính dưới sự chuyển mạch tùy ý. Trong đó, có điều kiện cần và đủ để hệ chuyển mạch phi tuyến ổn định thông qua việc sử dụng hàm Lyapunov. Ta có mối liên giữa tập nghiệm và tính ổn định của hệ chuyển mạch tuyến tính, hệ bất định tuyến tính đa hộp và hệ bao hàm thức vi phân/ sai phân.\\
-Cuối cùng là tiêu chuẩn ổn định đại số của các hệ chuyển mạch tuyến tính rời rạc đặc trung bởi bán kính phổ của ma trận.\\
+Đồ án này đã trình bày về một số khái niệm cơ bản của hệ chuyển mạch: khái niệm hệ động lực chuyển mạch, dãy thời điểm chuyển mạch, dãy chỉ số chuyển mạch, tín hiệu chuyển mạch, nghiệm của hệ chuyển mạch, tính ổn định và khả ổn định của hệ chuyển mạch.\\
+Đồng thời, đồ án cũng trình bày về tính ổn định của hệ chuyển mạch phi tuyến và hệ chuyển mạch tuyến tính. Trong đó, có điều kiện cần và đủ để hệ chuyển mạch phi tuyến ổn định thông qua việc sử dụng hàm Lyapunov. Ta có mối liên giữa tập nghiệm và tính ổn định của hệ chuyển mạch tuyến tính, hệ bất định tuyến tính đa hộp và hệ bao hàm thức vi phân/sai phân.\\
+Cuối cùng là tiêu chuẩn ổn định đại số của các hệ chuyển mạch tuyến tính rời rạc đặc trưng bởi bán kính phổ của ma trận.\\
 
-Mong muốn của đồ án này là sẽ có nhiều nghiên cứu hơn trong các hệ thống điều khiển chuyển mạch. Việc này có ý nghĩa rất lớn đối với nhiều bài toán trong thực tế cần giải quyết như kiểm soát giao thông, quản lý các hệ thống điện, các bảng mạch điện tử, ... Hơn nữa, các kết quả nghiên cứu đó còn được áp dụng trong các bài toán tối ưu góp phần làm tăng hiệu năng các hệ thống kỹ thuật.
+Mong muốn của đồ án này là sẽ có nhiều nghiên cứu hơn trong các hệ thống điều khiển chuyển mạch. Việc này có ý nghĩa rất lớn đối với nhiều bài toán trong thực tế cần giải quyết như kiểm soát giao thông, quản lý các hệ thống điện, các bảng mạch điện tử,... Hơn nữa, các kết quả nghiên cứu đó còn được áp dụng trong các bài toán tối ưu góp phần làm tăng hiệu năng các hệ thống kỹ thuật.
 
 \bibliographystyle{plain}
 
